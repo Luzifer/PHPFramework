@@ -10,7 +10,7 @@
   Things you should try now:
 </p>
 <ol>
-  <li>Look at the configuration at <strong><em>/config/settings.init</em></strong></li>
+  <li>Look at the configuration at <strong><em>/config/settings.ini</em></strong></li>
   <li>Define your own URL handler at <strong><em>/config/urls.php</em></strong></li>
   <li>Write your own handler class and place them to <strong><em>/handler/</em></strong></li>
   <li>Modify the existing or write your own templates in <strong><em>/templates/</em></strong></li>
