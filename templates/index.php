@@ -10,11 +10,11 @@
   Things you should try now:
 </p>
 <ol>
-  <li>Look at the configuration at <em>/config/settings.init</em></li>
-  <li>Define your own URL handler at <em>/config/urls.php</em></li>
-  <li>Write your own handler class and place them to <em>/handler/</em></li>
-  <li>Modify the existing or write your own templates in <em>/templates/</em></li>
-  <li>Place your static resources somewhere in <em>/public/</em></li>
+  <li>Look at the configuration at <strong><em>/config/settings.init</em></strong></li>
+  <li>Define your own URL handler at <strong><em>/config/urls.php</em></strong></li>
+  <li>Write your own handler class and place them to <strong><em>/handler/</em></strong></li>
+  <li>Modify the existing or write your own templates in <strong><em>/templates/</em></strong></li>
+  <li>Place your static resources somewhere in <strong><em>/public/</em></strong></li>
 </ol>
 <p>
   If you have done all of that points I'm pretty sure you got how this

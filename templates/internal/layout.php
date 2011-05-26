@@ -2,7 +2,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>404 - Page not found</title>
+    <title><?= $title; ?></title>
     <style type="text/css" media="screen">
       @import url(http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold);
       @import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
