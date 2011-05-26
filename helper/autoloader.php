@@ -4,7 +4,7 @@ class AutoLoader {
   
   static function auto_load($class) {
     $chances = array(
-      dirname(__file__) . '/../responder/',
+      dirname(__file__) . '/../handler/',
       dirname(__file__) . '/../classes/',
       dirname(__file__) . '/../helper/'
     );
