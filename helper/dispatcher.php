@@ -20,6 +20,7 @@ class Dispatcher {
     }
     
     c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
+    c::set('twig.debug', $config->get('debug', false));
   }
   
   static function getInstance() {
