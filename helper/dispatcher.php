@@ -20,6 +20,7 @@ class Dispatcher {
     }
     
     c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
+    c::set('twig.cache', realpath(c::get('twig.root') . '/cache'));
     if(!is_dir(realpath(c::get('twig.root') . '/cache')) || !$config->get('templatecache')) {
       c::set('twig.cache', true);
     }
