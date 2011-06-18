@@ -20,6 +20,9 @@
   <li>Write your own handler class and place them to <strong><em>/handler/</em></strong></li>
   <li>Modify the existing or write your own templates in <strong><em>/templates/</em></strong></li>
   <li>Place your static resources somewhere in <strong><em>/public/</em></strong></li>
+  {% ifequal hascache false %}
+  <li>Add the directory <em><strong>/template/cache</strong></em> with chmod 777 to support template caching</li>
+  {% endifequal %}
 </ol>
 <p>
   If you have done all of that points I'm pretty sure you got how this
