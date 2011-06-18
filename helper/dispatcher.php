@@ -19,7 +19,10 @@ class Dispatcher {
       }
     }
     
-    c::set('twig.root', dirname(__file__) . '/../templates');
+    c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
+    if(!is_dir(realpath(c::get('twig.root') . '/cache')) || !$config->get('templatecache')) {
+      c::set('twig.cache', true);
+    }
   }
   
   static function getInstance() {
