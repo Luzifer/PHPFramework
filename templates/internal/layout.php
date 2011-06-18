@@ -2,7 +2,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title><?= $title; ?></title>
     <style type="text/css" media="screen">
       @import url(http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold);
       @import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
@@ -11,14 +11,13 @@
       .swc1 { display: table-cell; vertical-align: middle; }
       .frame { border:1px solid #0400ae; background-color:#e6e6f7; padding:10px; border-radius:10px; margin-bottom:30px; }
       .title { text-align:center; font-weight:bold; font-size:14px; }
-      {% block style %}{% endblock %}
     </style>
   </head>
   <body>
     <div class="swc0">
       <div class="swc1">
         <div class="frame">
-          {% block content %}{% endblock %}
+          <? echo tpl::load($_actiontpl); ?>
         </div>
       </div>
     </div>

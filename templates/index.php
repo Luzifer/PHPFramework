@@ -1,8 +1,3 @@
-{% extends internal/layout.html %}
-
-{% block title %}{{ title }}{% endblock %}
-
-{% block content %}
 <p class="title">
   Welcome to this tiny PHP-framework
 </p>
@@ -20,13 +15,9 @@
   <li>Write your own handler class and place them to <strong><em>/handler/</em></strong></li>
   <li>Modify the existing or write your own templates in <strong><em>/templates/</em></strong></li>
   <li>Place your static resources somewhere in <strong><em>/public/</em></strong></li>
-  {% ifequal cachedisabled true %}
-    <li><strong>Enable caching by creating /templates/cache/ with chmod 777</strong></li>
-  {% endifequal %}
 </ol>
 <p>
   If you have done all of that points I'm pretty sure you got how this
   framework is supposed to work. Now you can build nearly everything 
   with this. You are missing something? Just implement it!
 </p>
-{% endblock %}

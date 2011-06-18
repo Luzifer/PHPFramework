@@ -1,7 +1,7 @@
 <?php
 
 require_once(dirname(__file__) . '/../lib/kirby/kirby.php');
-require_once(dirname(__file__) . '/../lib/kirby/plugins/twig.php');
+require_once(dirname(__file__) . '/../lib/kirby/plugins/template.php');
 require_once(dirname(__file__) . '/autoloader.php');
 
 class Dispatcher {
@@ -19,11 +19,7 @@ class Dispatcher {
       }
     }
     
-    c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
-    c::set('twig.cache', realpath(c::get('twig.root') . '/cache'));
-    if(!is_dir(realpath(c::get('twig.root') . '/cache')) || !$config->get('templatecache')) {
-      c::set('twig.cache', true);
-    }
+    c::set('tpl.root', dirname(__file__) . '/../templates');
   }
   
   static function getInstance() {
