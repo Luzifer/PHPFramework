@@ -13,8 +13,7 @@ class HttpHandler {
   }
   
   protected function do_layout($template) {
-    tpl::set('_actiontpl', $template);
-    tpl::load($this->layout);
+    tpl::load($template);
   }
   
   public function get($params) { throw new HttpResponderException('Method GET not implemented for ' . get_class($this)); }
