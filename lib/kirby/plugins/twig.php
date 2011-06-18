@@ -27,7 +27,7 @@ class tpl {
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem(c::get('twig.root'));
     $twig = new Twig_Environment($loader, array(
-      'cache' => c::get('twig.root') .'/cache',
+      'cache' => c::get('twig.cache', c::get('twig.root') .'/cache'),
       'debug' => c::get('twig.debug', false),
     ));
     $template = $twig->loadTemplate($template .'.html');
