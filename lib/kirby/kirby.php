@@ -868,7 +868,7 @@ class db {
 				$output[] = $key . ' = NOW()';
 			elseif(is_array($value))
 				$output[] = $key . ' = \'' . a::json($value) . '\'';
-			elseif($value == null)
+			elseif($value === null)
 			  $output[] = $key . ' = NULL';
 			else
 				$output[] = $key . ' = \'' . self::escape($value) . '\'';
