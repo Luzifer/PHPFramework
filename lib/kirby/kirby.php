@@ -1,6 +1,6 @@
 <?php
 
-c::set('version', 0.6);
+c::set('version', 0.7);
 c::set('language', 'en');
 c::set('charset', 'utf-8');
 c::set('root', dirname(__FILE__));
@@ -182,6 +182,10 @@ class a {
 
 	function last($array) {
 		return array_pop($array);
+	}
+
+	function random($array) {
+		return $array[array_rand($array)];
 	}
 
 	function search($array, $search) {
@@ -443,7 +447,7 @@ class c {
 	
 	function set_array($key, $value=null) {
 		if (!is_array($value)) {
-			$m = self::get_sub($key);
+			$m = self::get_array($key);
 			foreach($m AS $k => $v) {
 				self::set($k, $value);
 			}
@@ -452,6 +456,10 @@ class c {
 				self::set($key.'.'.$k, $v);
 			}
 		}
+	}
+	
+	function set_default($key, $value) {
+		self::set($key, self::get($key, $value));
 	}
 }
 
@@ -869,7 +877,7 @@ class db {
 			elseif(is_array($value))
 				$output[] = $key . ' = \'' . a::json($value) . '\'';
 			elseif($value === null)
-			  $output[] = $key . ' = NULL';
+				$output[] = $key . ' = NULL';
 			else
 				$output[] = $key . ' = \'' . self::escape($value) . '\'';
 		}
@@ -906,7 +914,22 @@ class db {
 
 		$output = array();
 		foreach($array AS $field => $value) {
-			$output[] = $field . ' = \'' . self::escape($value) . '\'';
+			$operand = '=';
+			$operand2 = 'IN';
+			if (substr($field, -1) == '!') {
+				$operand = '!=';
+				$operand2 = 'NOT IN';
+			} else if (substr($field, -1) == '?') {
+				$operand = 'LIKE';
+			}
+			
+			if (is_string($value)) {
+				$output[] = $field . ' ' . $operand . ' \'' . self::escape($value) . '\'';
+			} else if(is_array($value)) {
+				$output[] = $field . ' ' . $operand2 . ' (' . implode(',', $value) . ')';
+			} else {
+				$output[] = $field . ' ' . $operand . ' ' . self::escape($value) . '';
+			}
 			$separator = ' ' . $method . ' ';
 		}
 		return implode(' ' . $method . ' ', $output);
@@ -1341,7 +1364,8 @@ class s {
 	}
 
 	function remove($key) {
-		return a::remove(&$_SESSION, $key, true);
+		unset($_SESSION[$key]);
+		return $_SESSION;
 	}
 
 	function start() {
@@ -1532,7 +1556,7 @@ class str {
 		$table = array_flip(self::entities());
 
 		// convert html entities to xml entities
-		return strtr($string, $table);
+		return strip_tags(strtr($string, $table));
 
 	}
 
@@ -1686,8 +1710,9 @@ class str {
 	function urlify($text) {
 		$text = trim($text);
 		$text = str::lower($text);
-		$text = str_replace('ä', 'ae', $text);
-		$text = str_replace('ö', 'oe', $text);
+		$text = str_replace('ä', 'a', $text);
+		$text = str_replace('å', 'a', $text);
+		$text = str_replace('ö', 'o', $text);
 		$text = str_replace('ü', 'ue', $text);
 		$text = str_replace('ß', 'ss', $text);
 		$text = preg_replace("![^a-z0-9]!i","-", $text);
