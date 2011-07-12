@@ -40,6 +40,8 @@ class Dispatcher {
   public function dispatch($uri) {
     require_once(dirname(__file__) . '/../config/urls.php');
     
+    $uri = preg_replace('/\?.*$/', '', $uri);
+    
     $responder_class = null;
     $params = array();
     foreach($urlpattern as $regex => $class) {
