@@ -919,16 +919,18 @@ class db {
 			if (substr($field, -1) == '!') {
 				$operand = '!=';
 				$operand2 = 'NOT IN';
+				$field = substr($field, 0, -1);
 			} else if (substr($field, -1) == '?') {
 				$operand = 'LIKE';
+				$field = substr($field, 0, -1);
 			}
 			
 			if (is_string($value)) {
-				$output[] = $field . ' ' . $operand . ' \'' . self::escape($value) . '\'';
+				$output[] = '`' . $field . '`' . ' ' . $operand . ' \'' . self::escape($value) . '\'';
 			} else if(is_array($value)) {
-				$output[] = $field . ' ' . $operand2 . ' (' . implode(',', $value) . ')';
+				$output[] = '`' . $field . '`' . ' ' . $operand2 . ' (' . implode(',', $value) . ')';
 			} else {
-				$output[] = $field . ' ' . $operand . ' ' . self::escape($value) . '';
+				$output[] = '`' . $field . '`' . ' ' . $operand . ' ' . self::escape($value) . '';
 			}
 			$separator = ' ' . $method . ' ';
 		}
