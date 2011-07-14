@@ -65,18 +65,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="Config" -->
+<p>Implements a accessor to the settings.ini configuration file.  
+ <a href="a00002.html#details">More...</a></p>
+
 <p><a href="a00026.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#af7065a679296bd54b611f327323b31f1">get</a> ($varname, $default=null)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration is read from the current environment section, if not existent from the general config and if not present in the whole config from the passed default value.  <a href="#af7065a679296bd54b611f327323b31f1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a1474c3e49ccaab5f22b60aeacea6033f">getSection</a> ($section)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor for the settings file to retrieve a section defined outside of the standard config section.  <a href="#a1474c3e49ccaab5f22b60aeacea6033f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#aef7aac9c02b60638561fe777a87a5673">getInstance</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an instance of the configuration class with loaded configuration file stored to memory to prevent multiple access to the settings file.  <a href="#aef7aac9c02b60638561fe777a87a5673"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Implements a accessor to the settings.ini configuration file. The file is parsed according to the currently set apache environment to support for example different database configurations for live-, development- and testingserver.</p>
+<div class="textblock"><p>Implements a accessor to the settings.ini configuration file. </p>
+<p>The file is parsed according to the currently set apache environment to support for example different database configurations for live-, development- and testingserver.</p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Knut Ahlers &lt;<a href="mailto:knut@ahlers.me">knut@ahlers.me</a>&gt; </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="af7065a679296bd54b611f327323b31f1"></a><!-- doxytag: member="Config::get" ref="af7065a679296bd54b611f327323b31f1" args="($varname, $default=null)" -->
@@ -103,7 +110,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Configuration is read from the current environment section, if not existent from the general config and if not present in the whole config from the passed default value.</p>
+
+<p>Configuration is read from the current environment section, if not existent from the general config and if not present in the whole config from the passed default value. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">varname</td><td>(string) The key to retrieve from the settings file </td></tr>
@@ -128,8 +136,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Retrieve an instance of the configuration class with loaded configuration file stored to memory to prevent multiple access to the settings file.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Singleton instance of <a class="el" href="a00002.html">Config</a> class </dd></dl>
+
+<p>Retrieve an instance of the configuration class with loaded configuration file stored to memory to prevent multiple access to the settings file. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Singleton instance of <a class="el" href="a00002.html" title="Implements a accessor to the settings.ini configuration file.">Config</a> class </dd></dl>
 
 </div>
 </div>
@@ -147,7 +156,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Accessor for the settings file to retrieve a section defined outside of the standard config section</p>
+
+<p>Accessor for the settings file to retrieve a section defined outside of the standard config section. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">section</td><td>(string) Name of the section to return </td></tr>
@@ -182,7 +192,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 21:39:42 for PHPFramework by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 22:00:32 for PHPFramework by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

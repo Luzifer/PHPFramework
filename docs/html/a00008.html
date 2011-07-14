@@ -64,7 +64,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">HttpHandler Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="HttpHandler" --><div class="dynheader">
+<!-- doxytag: class="HttpHandler" -->
+<p>Base class for any handler used in urls.php.  
+ <a href="a00008.html#details">More...</a></p>
+<div class="dynheader">
 Inheritance diagram for HttpHandler:</div>
 <div class="dyncontent">
  <div class="center">
@@ -81,15 +84,20 @@ Inheritance diagram for HttpHandler:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9327300096f1f45a154086278123b4c7">get</a> ($params)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for GET requests.  <a href="#a9327300096f1f45a154086278123b4c7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ac7250f6d24fed7a136aef00288b31949">head</a> ($params)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for HEAD requests.  <a href="#ac7250f6d24fed7a136aef00288b31949"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a616ee5ece32a449d644889363e47215c">post</a> ($params)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for POST requests.  <a href="#a616ee5ece32a449d644889363e47215c"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#af5bb8d29ec502cd028b0078df5663985">redirect</a> ($url, $code=302)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Short call to do a redirect to a new URL.  <a href="#af5bb8d29ec502cd028b0078df5663985"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1615f9c76d8c0624900b3c774800c0b4">do_layout</a> ($template)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for template loading.  <a href="#a1615f9c76d8c0624900b3c774800c0b4"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Base class for any handler used in urls.php</p>
+<div class="textblock"><p>Base class for any handler used in urls.php. </p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Knut Ahlers &lt;<a href="mailto:knut@ahlers.me">knut@ahlers.me</a>&gt; </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1615f9c76d8c0624900b3c774800c0b4"></a><!-- doxytag: member="HttpHandler::do_layout" ref="a1615f9c76d8c0624900b3c774800c0b4" args="($template)" -->
@@ -106,7 +114,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Wrapper for template loading</p>
+
+<p>Wrapper for template loading. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">template</td><td>(string) Name of the template to execute </td></tr>
@@ -130,7 +139,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Handler for GET requests</p>
+
+<p>Handler for GET requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
@@ -162,7 +172,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Handler for HEAD requests</p>
+
+<p>Handler for HEAD requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
@@ -194,7 +205,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Handler for POST requests</p>
+
+<p>Handler for POST requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
@@ -236,7 +248,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Short call to do a redirect to a new URL</p>
+
+<p>Short call to do a redirect to a new URL. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">url</td><td>(string) The full URL used in the redirect </td></tr>
@@ -265,7 +278,7 @@ Protected Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 21:39:42 for PHPFramework by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 22:00:32 for PHPFramework by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

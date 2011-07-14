@@ -65,21 +65,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="SimpleLoginHelper" -->
+<p>Implements a very basic authentication mechanism based on the setting.ini file.  
+ <a href="a00012.html#details">More...</a></p>
+
 <p><a href="a00033.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a99a6e85b30d62153f5b91c74121b288b">getUser</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current logged in user or null when no user is discovered.  <a href="#a99a6e85b30d62153f5b91c74121b288b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a01a2cfabf54071171ca9db80d8482808">setSystemName</a> ($name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the login realm used in HTTP-Auth dialog.  <a href="#a01a2cfabf54071171ca9db80d8482808"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a9c9a0cff829c029b17e9a28366429f31">requireUser</a> ($user)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the logged in user and invokes a login dialog when the user does not match the passed username.  <a href="#a9c9a0cff829c029b17e9a28366429f31"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a9906d7c759228cba753a7105ff1c5997">requireGroup</a> ($group)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="a00012.html#ae93c45aa09463c7b760a506bd3cdf4f2">inGroup</a> except if the user is not member of the group a login dialog will be invoked.  <a href="#a9906d7c759228cba753a7105ff1c5997"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ae93c45aa09463c7b760a506bd3cdf4f2">inGroup</a> ($group)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the current user is member of the passed group.  <a href="#ae93c45aa09463c7b760a506bd3cdf4f2"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a3956b9ad7a9db771d3ad702893125461">getInstance</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Here a singleton is implemented to avoid using multiple concurrent login handlers.  <a href="#a3956b9ad7a9db771d3ad702893125461"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Implements a very basic authentication mechanism based on the setting.ini file. A simple mapping of users (and their password hashs) to groups is supported. Also mapping multiple groups into a greater one is possible.</p>
+<div class="textblock"><p>Implements a very basic authentication mechanism based on the setting.ini file. </p>
+<p>A simple mapping of users (and their password hashs) to groups is supported. Also mapping multiple groups into a greater one is possible.</p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Knut Ahlers &lt;<a href="mailto:knut@ahlers.me">knut@ahlers.me</a>&gt; </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a3956b9ad7a9db771d3ad702893125461"></a><!-- doxytag: member="SimpleLoginHelper::getInstance" ref="a3956b9ad7a9db771d3ad702893125461" args="()" -->
@@ -95,8 +105,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Here a singleton is implemented to avoid using multiple concurrent login handlers.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Singleton instance of <a class="el" href="a00012.html">SimpleLoginHelper</a> </dd></dl>
+
+<p>Here a singleton is implemented to avoid using multiple concurrent login handlers. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Singleton instance of <a class="el" href="a00012.html" title="Implements a very basic authentication mechanism based on the setting.ini file.">SimpleLoginHelper</a> </dd></dl>
 
 </div>
 </div>
@@ -113,7 +124,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the current logged in user or null when no user is discovered.</p>
+
+<p>Returns the current logged in user or null when no user is discovered. </p>
 <p>Attention: This method will return null until any user or group is required using the functions requireUser or reuqireGroup!</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>(string) Username of the current logged in user </dd></dl>
 
@@ -133,7 +145,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Checks whether the current user is member of the passed group.</p>
+
+<p>Checks whether the current user is member of the passed group. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">group</td><td>(string) Name of the group which is checked for the membership of the current user </td></tr>
@@ -163,7 +176,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Same as <a class="el" href="a00012.html#ae93c45aa09463c7b760a506bd3cdf4f2">inGroup</a> except if the user is not member of the group a login dialog will be invoked.</p>
+
+<p>Same as <a class="el" href="a00012.html#ae93c45aa09463c7b760a506bd3cdf4f2">inGroup</a> except if the user is not member of the group a login dialog will be invoked. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">group</td><td>(string) Name of the group </td></tr>
@@ -187,7 +201,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Checks the logged in user and invokes a login dialog when the user does not match the passed username. A check whether the user exists in config is NOT made.</p>
+
+<p>Checks the logged in user and invokes a login dialog when the user does not match the passed username. </p>
+<p>A check whether the user exists in config is NOT made.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">user</td><td>(string) Name of the required user (Same as in settings.ini) </td></tr>
@@ -211,7 +227,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Sets the name of the login realm used in HTTP-Auth dialog</p>
+
+<p>Sets the name of the login realm used in HTTP-Auth dialog. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>(string) Text to identify the secured section of the website </td></tr>
@@ -239,7 +256,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 21:39:42 for PHPFramework by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 22:00:32 for PHPFramework by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
