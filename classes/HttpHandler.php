@@ -1,7 +1,6 @@
 <?php
 
 class HttpHandler {
-  protected $layout = 'internal/layout';
   
   protected function redirect($url, $code = 302) {
     if($code == 301) {
