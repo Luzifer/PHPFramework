@@ -1,0 +1,16 @@
+{% extends "internal/layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<p class="title">
+  You are now logged in!
+</p>
+<p style="text-align:center;">
+  Congratulations. You are currently logged in as {{ user }}.
+</p>
+<p style="text-align:center;">
+  <a href="/">Back to index</a>
+</p>
+
+{% endblock %}
