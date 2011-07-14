@@ -5,6 +5,11 @@ if(!c::get('twig.root')) c::set('twig.root', c::get('root') . '/templates');
 class tpl {
 	
 	static public $vars = array();
+  static public $filters = array();
+
+  function add_filter($name, $method) {
+    self::$filters[$name] = $method;
+  }
 
 	function set($key, $value=false) {
 		if(is_array($key)) {
@@ -30,6 +35,16 @@ class tpl {
       'cache' => c::get('twig.cache', c::get('twig.root') .'/cache'),
       'debug' => c::get('twig.debug', false),
     ));
+
+    if(!empty(self::$filters)) {
+      foreach(self::$filters as $key => $value) {
+        if(is_array($value)) {
+          $twig->addFilter($key, new Twig_Filter_Function($value[0] .'::'. $value[1]));
+        } else {
+          $twig->addFilter($key, new Twig_Filter_Function($value));
+        }
+      }
+    }
     $template = $twig->loadTemplate($template .'.html');
     $template->display(array_merge(self::$vars, $vars));
 	}
