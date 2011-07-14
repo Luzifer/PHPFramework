@@ -58,11 +58,8 @@ class SimpleLoginHelper {
       return false;
     }
     
-    $group_db = Config::getInstance()->getSection('user_groups');
-    if(!array_key_exists($group, $group_db)) {
-      throw new Exception('FATAL: Group ' . $group . ' has not been defined in settings.ini!');
-    }
-    $members = str::split($group_db[$group], ', ');
+    $members = $this->getGroupMembers($group);
+    
     if(a::contains($members, $this->user)) {
       return true;
     } else {
@@ -71,6 +68,27 @@ class SimpleLoginHelper {
   }
   
   
+  
+  private function getGroupMembers($group) {
+    $group_db = Config::getInstance()->getSection('user_groups');
+    if(!array_key_exists($group, $group_db)) {
+      throw new Exception('FATAL: Group ' . $group . ' has not been defined in settings.ini!');
+    }
+    $members = array();
+    $members_group = str::split($group_db[$group], ', ');
+    foreach($members_group as $member) {
+      if(preg_match('/^@/', $member)) {
+        $submembers = $this->getGroupMembers(preg_replace('/^@/', '', $member));
+        foreach($submembers as $m) {
+          $members[] = $m;
+        }
+      } else {
+        $members[] = $member;
+      }
+    }
+    
+    return $members;
+  }
   
   private function fetchUser() {
     if(array_key_exists('PHP_AUTH_USER', $_SERVER)) {
