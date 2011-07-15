@@ -873,13 +873,13 @@ class db {
 		$output = array();
 		foreach($input AS $key => $value) {
 			if($value === 'NOW()')
-				$output[] = $key . ' = NOW()';
+				$output[] = '`' . $key . '`' . ' = NOW()';
 			elseif(is_array($value))
-				$output[] = $key . ' = \'' . a::json($value) . '\'';
+				$output[] = '`' . $key . '`' . ' = \'' . a::json($value) . '\'';
 			elseif($value === null)
-				$output[] = $key . ' = NULL';
+				$output[] = '`' . $key . '`' . ' = NULL';
 			else
-				$output[] = $key . ' = \'' . self::escape($value) . '\'';
+				$output[] = '`' . $key . '`' . ' = \'' . self::escape($value) . '\'';
 		}
 		return implode(', ', $output);
 
