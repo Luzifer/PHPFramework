@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>
-      <? if(Config::getInstance()->get('debug', false)): ?>
+      <?php if(Config::getInstance()->get('debug', false)): ?>
         Unhandled Error occured
-      <? else: ?>
+      <?php else: ?>
         An error occured
-      <? endif; ?>
+      <?php endif; ?>
     </title>
     <style type="text/css" media="screen">
       @import url(http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold);
@@ -24,14 +24,14 @@
     <div class="swc0">
       <div class="swc1">
         <div class="error">
-          <? if(Config::getInstance()->get('debug', false)): ?>
+          <?php if(Config::getInstance()->get('debug', false)): ?>
             <p class="title">Unhandled Error occured!</p>
-            <p><?= preg_replace("/('[^']*')/", '<strong>\1</strong>', $exception['msg']); ?></p>
-            <pre><?= $exception['trace']; ?></pre>
-          <? else: ?>
+            <p><?php echo preg_replace("/('[^']*')/", '<strong>\1</strong>', $exception['msg']); ?></p>
+            <pre><?php echo $exception['trace']; ?></pre>
+          <?php else: ?>
             <p class="title">An error occured!</p>
             <p style="text-align:center;">We are sorry and will look after this as soon as possible.</p>
-          <? endif; ?>
+          <?php endif; ?>
         </div>
       </div>
     </div>
