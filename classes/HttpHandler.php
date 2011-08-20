@@ -54,6 +54,15 @@ class HttpHandler {
     @throws HttpResponderException When not implemented in child class
   */
   public function post($params) { throw new HttpResponderException('Method POST not implemented for ' . get_class($this)); }
+
+
+  /**
+    Handler for CLI requests
+    
+    @param params (string[]) Selections from the url defined in urls.php are passed to this
+    @throws HttpResponderException When not implemented in child class
+  */
+  public function cli($params) { throw new HttpResponderException('Method CLI not implemented for ' . get_class($this)); }
 }
 
 class HttpResponderException extends Exception {}
