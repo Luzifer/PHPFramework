@@ -65,7 +65,13 @@ class Dispatcher {
     // If the class does not exist throw an exception
     if(class_exists($responder_class, true)) {
       $responder = new $responder_class();
-      $method = strtolower($_SERVER['REQUEST_METHOD']);
+      
+      if(php_sapi_name() == 'cli') {
+        $method = 'cli';
+      } else {
+        $method = strtolower($_SERVER['REQUEST_METHOD']);
+      }
+      
       if(method_exists($responder, $method)) {
         $responder->$method($params);
       } else {
