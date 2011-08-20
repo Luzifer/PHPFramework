@@ -89,6 +89,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for HEAD requests.  <a href="#ac7250f6d24fed7a136aef00288b31949"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a616ee5ece32a449d644889363e47215c">post</a> ($params)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for POST requests.  <a href="#a616ee5ece32a449d644889363e47215c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a8754f14a77129b2f545c93915212f9f1">cli</a> ($params)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for CLI requests.  <a href="#a8754f14a77129b2f545c93915212f9f1"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#af5bb8d29ec502cd028b0078df5663985">redirect</a> ($url, $code=302)</td></tr>
@@ -100,6 +102,37 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><p>Base class for any handler used in urls.php. </p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Knut Ahlers &lt;<a href="mailto:knut@ahlers.me">knut@ahlers.me</a>&gt; </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a8754f14a77129b2f545c93915212f9f1"></a><!-- doxytag: member="HttpHandler::cli" ref="a8754f14a77129b2f545c93915212f9f1" args="($params)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HttpHandler::cli </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Handler for CLI requests. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00009.html">HttpResponderException</a></td><td>When not implemented in child class </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a1615f9c76d8c0624900b3c774800c0b4"></a><!-- doxytag: member="HttpHandler::do_layout" ref="a1615f9c76d8c0624900b3c774800c0b4" args="($template)" -->
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +311,7 @@ Protected Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 14 2011 22:00:32 for PHPFramework by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Aug 20 2011 13:53:03 for PHPFramework by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
