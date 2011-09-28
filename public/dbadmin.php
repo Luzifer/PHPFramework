@@ -10,7 +10,7 @@
   require_once(dirname(__file__) . '/../helper/Config.php');
   $config = Config::getInstance();
 
- $ACCESS_PWD = $config->get('dbadmin.password');
+ $ACCESS_PWD = $config->get('dbadmin.password', md5(time() . rand()));
 
  #DEFAULT db connection settings
  # --- WARNING! --- if you set defaults - always recommended to set $ACCESS_PWD to protect your db!
