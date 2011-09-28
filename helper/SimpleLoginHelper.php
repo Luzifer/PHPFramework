@@ -122,6 +122,15 @@ class SimpleLoginHelper {
   }
   
   private function fetchUser() {
+    // Two hacks for PHP running in CGI mode
+    if(array_key_exists('HTTP_AUTHORIZATION', $_SERVER)) {
+      list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(':' , base64_decode(substr($_SERVER['HTTP_AUTHORIZATION'], 6)));
+    }
+    
+    if(array_key_exists('HTTP_AUTHORIZATION', $_GET)) {
+      list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(':' , base64_decode(substr($_GET['HTTP_AUTHORIZATION'], 6)));
+    }
+    
     if(array_key_exists('PHP_AUTH_USER', $_SERVER)) {
       $this->user = $_SERVER['PHP_AUTH_USER'];
       $this->checkLogin();
