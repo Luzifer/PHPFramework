@@ -1,0 +1,43 @@
+# Requirements
+
+Currently the best supported setup (as we use it for development) for this framework is this:
+
+- Debian / Ubuntu Linux (Most recent LTS Ubuntu is running on the dev server.)
+- PHP 5.3.0 or greater (I've tested it on 5.2.6 and it works as well)
+- Apache 2.2 with PHP running with mod\_php and mod\_rewrite enabled (PHP over CGI is working but buggy)
+- MySQL 5.1 (but 5.0 or even 4.x should work as well)
+
+# How to install this framework
+
+1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master) 
+   or see the [Download](https://github.com/Luzifer/PHPFramework/downloads) section for more
+   options.
+1. Put it on the server in a directory outside the Document Root to use all security features
+   built in.
+1. Set the document root to the **/public/** directory
+1. If you need it set up a MySQL database and user and put the settings to the **/config/settings.ini**
+
+If you have no chance to run the framework with DocumentRoot set to **/public/** you also can move
+all files of **/public/** to the main directory, put this into any subdirectory and modify the 
+**.htaccess** file for your needs. I recommend to add one **.htaccess** file to each directory you
+don't need to access directly (classes, config, docs, handlers, helpers, lib, templates) with this 
+content to get a little bit of security back:
+
+    Order allow,deny
+    Deny from all
+
+# Things you should try after installing
+
+1. Look at the configuration at **/config/settings.ini**
+1. Define your own URL handler at **/config/urls.php**
+1. Write your own handler class and place them to **/handler/**
+1. Modify the existing or write your own templates in **/templates/**
+1. Place your static resources somewhere in **/public/**
+1. Add the directory **/template/cache** with chmod 777 to support template caching
+
+If you have done all of that points I'm pretty sure you got how this
+framework is supposed to work. Now you can build nearly everything 
+with this. 
+
+You are missing something? Just implement it and send me
+a patch file or pull request for your work!
