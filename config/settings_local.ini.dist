@@ -1,8 +1,9 @@
+; General configuration used for every key not defined in
+; configuration for webserver or CLI
 [config]
 debug = false
 templatecache = true
 
-[config_development]
 debug = true
 templatecache = false
 
@@ -11,11 +12,14 @@ db.password = XXXXXXX
 db.host = localhost
 db.user = webuser2
 
-[config_production]
-db.name = test
-db.password = XXXXXXX
-db.host = localhost
-db.user = webuser
+
+; Optional configuration only for web access
+[config_webserver]
+
+
+; Optional configuration for CLI scripts executed by dispatcher
+[config_cli]
+
 
 [user_accounts]
 ; $ echo -n 'password' | shasum

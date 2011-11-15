@@ -40,15 +40,15 @@ class Config {
   private static $env = null;
   
   private function __construct() {
-    $this->config = parse_ini_file(dirname(__file__) . '/../config/settings.ini', true);
+    if(file_exists(dirname(__file__) . '/../config/settings_local.ini')) {
+      $this->config = parse_ini_file(dirname(__file__) . '/../config/settings_local.ini', true);
+    } else {
+      throw new ConfigException('Configuration file config/settings_local.ini was not found.');
+    }
     if(php_sapi_name() == 'cli') {
       $this->env = 'cli';
     } else {
-      if(function_exists('apache_getenv')) {
-        $this->env = apache_getenv('APPLICATION_ENV');
-      } else {
-        $this->env = 'unknown';
-      }
+      $this->env = 'webserver';
     }
   }
   
