@@ -19,7 +19,6 @@ class HttpHandler {
     } else {
       header("HTTP/1.1 302 Moved Temporarily");
     }
-    header('Location: ' . $url);
   }
   
   /**
