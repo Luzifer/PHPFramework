@@ -71,6 +71,7 @@ POSSIBILITY OF SUCH DAMAGE.
 # Changes
 
 **2011-11-15:**
+
 - Removed Apache mod\_php-only functionality to support PHP over CGI
 - Moved config to new file to prevent overwriting it while upgrading the framework
 - Published all code under BSD license
