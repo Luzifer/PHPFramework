@@ -4,7 +4,7 @@ Currently the best supported setup (as we use it for development) for this frame
 
 - Debian / Ubuntu Linux *(Most recent LTS Ubuntu is running on the dev server.)*
 - PHP 5.3.0 or greater *(I've tested it on 5.2.6 and it works as well)*
-- Apache 2.2 with PHP running with mod\_php and mod\_rewrite enabled *(PHP over CGI is working but buggy)*
+- Apache 2.2 with PHP running with mod\_php and mod\_rewrite enabled *(PHP over CGI should also work)*
 - MySQL 5.1 *(but 5.0 or even 4.x should work as well)*
 
 # How to install this framework
@@ -67,3 +67,11 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
+
+# Changes
+
+**2011-11-15:**
+- Removed Apache mod\_php-only functionality to support PHP over CGI
+- Moved config to new file to prevent overwriting it while upgrading the framework
+- Published all code under BSD license
+- Removed dbadmin as of security and license issues
