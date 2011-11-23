@@ -42,6 +42,8 @@ class Config {
   private function __construct() {
     if(file_exists(dirname(__file__) . '/../config/settings_local.ini')) {
       $this->config = parse_ini_file(dirname(__file__) . '/../config/settings_local.ini', true);
+    } elseif(file_exists(dirname(__file__) . '/../../private/config/settings_local.ini')) {
+      $this->config = parse_ini_file(dirname(__file__) . '/../../private/config/settings_local.ini', true);
     } else {
       throw new ConfigException('Configuration file config/settings_local.ini was not found.');
     }
