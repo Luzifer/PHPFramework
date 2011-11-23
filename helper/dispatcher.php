@@ -48,8 +48,11 @@ class Dispatcher {
     if($config->get('debug', 0) == 1) {
       header('Cache-Control: no-cache');
     }
-    
-    c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
+    if(is_dir(realpath(dirname(__file__) . '/../../private/templates'))) {
+      c::set('twig.root', realpath(dirname(__file__) . '/../../private/templates'));
+    } else {
+      c::set('twig.root', realpath(dirname(__file__) . '/../templates'));
+    }
     c::set('twig.debug', $config->get('debug', 0) == 1);
     if(!is_dir(c::get('twig.root' . '/cache')) || !$config->get('templatecache', true)) {
       c::set('twig.cache', false);
@@ -64,7 +67,11 @@ class Dispatcher {
   }
   
   public function dispatch($uri) {
-    require_once(dirname(__file__) . '/../config/urls.php');
+    if(file_exists(dirname(__file__) . '/../../private/config/urls.php')) {
+      require_once(dirname(__file__) . '/../../private/config/urls.php');
+    } else {
+      require_once(dirname(__file__) . '/../config/urls.php');
+    }
     
     $uri = preg_replace('/\?.*$/', '', $uri);
     
