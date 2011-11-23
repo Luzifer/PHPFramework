@@ -26,6 +26,14 @@ content to get a little bit of security back:
     Order allow,deny
     Deny from all
 
+This tiny bash script can help you to do this. It has to be executed from the
+main directory:
+
+    #!/bin/bash
+    for i in $(find . -type d -mindepth 1); do
+      echo -e "Order allow,deny\nDeny from all" >> $i/.htaccess
+    done
+
 # Things you should try after installing
 
 1. Look at the configuration at **/config/settings.ini**
