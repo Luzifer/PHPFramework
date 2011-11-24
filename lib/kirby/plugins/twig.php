@@ -3,8 +3,8 @@
 if(!c::get('twig.root')) c::set('twig.root', c::get('root') . '/templates');
 
 class tpl {
-	
-	static public $vars = array();
+  
+  static public $vars = array();
   static public $filters = array();
   static public $functions = array();
 
@@ -16,18 +16,18 @@ class tpl {
     self::$filters[$name] = $method;
   }
 
-	public static function set($key, $value=false) {
-		if(is_array($key)) {
-			self::$vars = array_merge(self::$vars, $key);
-		} else {
-			self::$vars[$key] = $value;
-		}
-	}
+  public static function set($key, $value=false) {
+    if(is_array($key)) {
+      self::$vars = array_merge(self::$vars, $key);
+    } else {
+      self::$vars[$key] = $value;
+    }
+  }
 
-	public static function get($key=null, $default=null) {
-		if($key===null) return (array)self::$vars;
-		return a::get(self::$vars, $key, $default);				
-	}
+  public static function get($key=null, $default=null) {
+    if($key===null) return (array)self::$vars;
+    return a::get(self::$vars, $key, $default);       
+  }
 
   public static function get_rendered_page($template='default', $vars=array(), $return=false) {
     $tpl = self::get_template_env($template, $vars, $return);    
@@ -39,7 +39,7 @@ class tpl {
     $tpl->display(array_merge(self::$vars, $vars));
   }
 
-  public static function get_template_env($template='default', $vars=array(), $return=false) {		
+  public static function get_template_env($template='default', $vars=array(), $return=false) {    
     $file = c::get('twig.root') . c::get('twig.tpldir', '') .'/' . $template . '.html';
     if(!file_exists($file)) return false;
 
@@ -74,6 +74,6 @@ class tpl {
     $template = $twig->loadTemplate($template .'.html');
     return $template;
     
-	}
+  }
 
 }
