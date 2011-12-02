@@ -78,6 +78,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 # Changes
 
+**2011-12-02:**
+
+- Updated Twig to version 1.3.0
+
 **2011-11-15:**
 
 - Removed Apache mod\_php-only functionality to support PHP over CGI
