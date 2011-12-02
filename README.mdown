@@ -7,6 +7,15 @@ Currently the best supported setup (as we use it for development) for this frame
 - Apache 2.2 with PHP running with mod\_php and mod\_rewrite enabled *(PHP over CGI should also work)*
 - MySQL 5.1 *(but 5.0 or even 4.x should work as well)*
 
+# About the current version
+
+The current version is not a stable one. There are currently no stable tags so you are working with
+an unstable version. We are working on it to get as fast as possible to a first stable tag which
+will be backward compatible. Until this tag there could be commits which break backward compatibility.
+
+As long as you are working on the same version all the time you should be fine but for any upgrade of
+the framework itself you should check whether your app is still compatible with the new version.
+
 # How to install this framework
 
 1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master) 
