@@ -30,6 +30,11 @@ require_once(dirname(__file__) . '/../lib/kirby/kirby.php');
 require_once(dirname(__file__) . '/../lib/kirby/plugins/twig.php');
 require_once(dirname(__file__) . '/autoloader.php');
 
+/**
+ * Main entrance class for the framework / application
+ * 
+ * @author Knut Ahlers
+ */
 class Dispatcher {
   private static $instance = null;
   private static $config = null;
@@ -59,6 +64,11 @@ class Dispatcher {
     }
   }
   
+  /**
+   * Gets the singleton instance of the dispatcher
+   * 
+   * @return Dispatcher
+   */
   static function getInstance() {
     if(self::$instance === null) {
       self::$instance = new self;
@@ -66,6 +76,14 @@ class Dispatcher {
     return self::$instance;
   }
   
+  /**
+   * Calls the right handler for the passed uri
+   * 
+   * @param string $uri The URI called by the client. Most likely $_SERVER['REQUEST_URI']
+   * @throws DispatcherException when the handler class does not match PHP class naming guidelines
+   * @throws DispatcherException when the handler class could not be found
+   * @throws DispatcherException when the handler class does not support request method
+   */
   public function dispatch($uri) {
     if(file_exists(dirname(__file__) . '/../../private/config/urls.php')) {
       require_once(dirname(__file__) . '/../../private/config/urls.php');

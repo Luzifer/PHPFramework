@@ -59,7 +59,7 @@ class Config {
    * configuration file stored to memory to prevent multiple access
    * to the settings file.
    * 
-   * @returns Singleton instance of Config class
+   * @return Config Singleton instance of Config class
    */
   public static function getInstance() {
     if(self::$instance == null) {
@@ -75,7 +75,7 @@ class Config {
    * 
    * @param varname (string) The key to retrieve from the settings file
    * @param default (string) A default value to return when the setting is not present
-   * @returns The configuration value for the key passed. 
+   * @return mixed The configuration value for the key passed. 
    */
   public function get($varname, $default = null) {
     $section = "config_" . $this->env;
@@ -99,7 +99,7 @@ class Config {
    * outside of the standard config section
    * 
    * @param section (string) Name of the section to return
-   * @returns Array of key-value pairs in the passed section
+   * @return array Key-value pairs in the passed section
    * @throws ConfigException when section has not been found
    */
   public function getSection($section) {
