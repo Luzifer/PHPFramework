@@ -73,8 +73,8 @@ class Config {
    * existent from the general config and if not present in the whole 
    * config from the passed default value.
    * 
-   * @param varname (string) The key to retrieve from the settings file
-   * @param default (string) A default value to return when the setting is not present
+   * @param string $varname The key to retrieve from the settings file
+   * @param string $default A default value to return when the setting is not present
    * @return mixed The configuration value for the key passed. 
    */
   public function get($varname, $default = null) {
@@ -98,7 +98,7 @@ class Config {
    * Accessor for the settings file to retrieve a section defined
    * outside of the standard config section
    * 
-   * @param section (string) Name of the section to return
+   * @param string $section Name of the section to return
    * @return array Key-value pairs in the passed section
    * @throws ConfigException when section has not been found
    */
