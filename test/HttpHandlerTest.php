@@ -26,9 +26,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-include_once('PHPF_MasterTest.php');
-
-class HttpHandlerTest extends PHPF_MasterTest {
+class HttpHandlerTest extends PHPUnit_Framework_TestCase {
+  
+  public static function setUpBeforeClass() {
+    include_once(dirname(__file__) . '/../helper/autoloader.php');
+    spl_autoload_register('AutoLoader::auto_load');
+  }
   
   public function testGet() {
     $this->setExpectedException('HttpResponderException');
