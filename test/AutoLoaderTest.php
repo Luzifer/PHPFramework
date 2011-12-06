@@ -37,7 +37,7 @@ class AutoLoaderTest extends PHPUnit_Framework_TestCase {
   
   public function testAutoloadFileLowercase() {
     AutoLoader::auto_load('simpleloginhelper');
-    $this->assertTrue(class_exists('SimpleLoginHelper'));
+    $this->assertFalse(class_exists('SimpleLoginHelper'));
   }
   
 }
