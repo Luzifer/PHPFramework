@@ -97,7 +97,7 @@ Inheritance diagram for HttpHandler:</div>
 </map>
  </div></div>
 
-<p><a href="a00037.html">List of all members.</a></p>
+<p><a href="a00035.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -138,7 +138,7 @@ Protected Member Functions</h2></td></tr>
 <p>Handler for CLI requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$params</td><td>Selections from the url defined in urls.php are passed to this </td></tr>
   </table>
   </dd>
 </dl>
@@ -169,7 +169,7 @@ Protected Member Functions</h2></td></tr>
 <p>Wrapper for template loading. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">template</td><td>(string) Name of the template to execute </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$template</td><td>Name of the template to execute </td></tr>
   </table>
   </dd>
 </dl>
@@ -194,7 +194,7 @@ Protected Member Functions</h2></td></tr>
 <p>Handler for GET requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$params</td><td>Selections from the url defined in urls.php are passed to this </td></tr>
   </table>
   </dd>
 </dl>
@@ -227,7 +227,7 @@ Protected Member Functions</h2></td></tr>
 <p>Handler for HEAD requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$params</td><td>Selections from the url defined in urls.php are passed to this </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,7 +260,7 @@ Protected Member Functions</h2></td></tr>
 <p>Handler for POST requests. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">params</td><td>(string[]) Selections from the url defined in urls.php are passed to this </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$params</td><td>Selections from the url defined in urls.php are passed to this </td></tr>
   </table>
   </dd>
 </dl>
@@ -303,8 +303,8 @@ Protected Member Functions</h2></td></tr>
 <p>Short call to do a redirect to a new URL. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">url</td><td>(string) The full URL used in the redirect </td></tr>
-    <tr><td class="paramname">code</td><td>(int) May be 301 (permanent redirect) or 302 (temporary redirect) </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td>The full URL used in the redirect </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$code</td><td>May be 301 (permanent redirect) or 302 (temporary redirect) </td></tr>
   </table>
   </dd>
 </dl>
@@ -332,7 +332,7 @@ Protected Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 3 2011 15:23:38 for PHPFramework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 13 2011 12:44:15 for PHPFramework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
