@@ -51,6 +51,8 @@ class tpl {
       'cache' => c::get('twig.cache', c::get('twig.root') .'/cache'),
       'debug' => c::get('twig.debug', false),
     ));
+    
+    $twig->addExtension(new Twig_Extensions_Extension_I18n());
 
     if(!empty(self::$functions)) {
       foreach(self::$functions as $key => $value) {
