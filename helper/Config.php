@@ -36,8 +36,8 @@
  */
 class Config {
   private static $instance = null;
-  private static $config = null;
-  private static $env = null;
+  private $config = null;
+  private $env = null;
   
   private function __construct() {
     if(file_exists(dirname(__file__) . '/../config/settings_local.ini')) {
