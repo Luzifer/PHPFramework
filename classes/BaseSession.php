@@ -95,4 +95,9 @@ class BaseSession implements BaseSessionInterface {
 
 class BaseSessionException extends Exception {}
 
-class BaseSessionUndifinedException extends BaseSessionException {}
+class UndifinedIndexException extends Exception {
+  
+  public function __construct($key) {
+    parent::__construct('Undifined index ' .$key);
+  }
+}
