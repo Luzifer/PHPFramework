@@ -1,38 +1,4 @@
 <?php
-interface BaseSessionInterface {
-  
-  /**
-   * @param string $key
-   * @param mixed $value
-   * @return BaseSessionInterface
-   */
-  public function set($key, $value);
-
-  /**
-   * @param string $key
-   * @return mixed
-   * @throws UndifinedIndexException
-   */
-  public function get($key);
-
-  /**
-   * @param string $key
-   * @return boolean
-   */
-  public function exist($key);
-
-  /**
-   * @param string $key
-   * @return BaseSessionInterface
-   * @throws UndifinedIndexException
-   */
-  public function clear($key);
-
-  /**
-   * @return BaseSessionInterface
-   */
-  public function clear_all();
-}
 
 class BaseSession implements BaseSessionInterface {
 
@@ -109,17 +75,5 @@ class BaseSession implements BaseSessionInterface {
    */
   public function clear_all() {
     return $this->session->clear_all();
-  }
-}
-
-class BaseSessionException extends Exception {}
-
-class UndifinedIndexException extends Exception {
-  
-  /**
-   * @param string $index
-   */  
-  public function __construct($index) {
-    parent::__construct('Undifined index ' . $index);
   }
 }

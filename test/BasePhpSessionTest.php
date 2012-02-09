@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__file__) . '/../classes/BaseSession.php';
+require dirname(__file__) . '/../classes/BaseSessionInterface.php';
 require dirname(__file__) . '/../classes/BasePhpSession.php';
 
 class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
@@ -15,8 +15,8 @@ class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException UndifinedIndexException
-   * @expectedExceptionMessage Undifined index foo
+   * @expectedException BaseSessionUndifinedIndexException
+   * @expectedExceptionMessage Undifined session index foo
    */
   public function testClear() {
     $session = new BasePhpSession(true);
@@ -26,8 +26,8 @@ class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException UndifinedIndexException
-   * @expectedExceptionMessage Undifined index foo2
+   * @expectedException BaseSessionUndifinedIndexException
+   * @expectedExceptionMessage Undifined session index foo2
    */
   public function testClearAll() {
     $session = new BasePhpSession(true);

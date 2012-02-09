@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__file__) . '/../classes/Config.php';
+require dirname(__file__) . '/../classes/BaseSessionInterface.php';
 require dirname(__file__) . '/../classes/BaseSession.php';
 require dirname(__file__) . '/../classes/BasePhpSession.php';
 
