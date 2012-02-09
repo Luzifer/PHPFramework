@@ -47,25 +47,25 @@ class BaseSession implements BaseSessionInterface {
       
     }    
   }
-  
+
   public function set($key, $value) {
- 
+    return $this->session->set($key, $value); 
   }
 
   public function get($key) {
-
+    return $this->session->get($key);
   }
 
   public function exist($key) {
-
+    return $this->session->exist($key);
   }
 
   public function clear($key) {
-
+    return $this->session->clear($key);
   }
 
   public function clear_all() {
-
+    return $this->session->clear_all();
   }
 }
 
