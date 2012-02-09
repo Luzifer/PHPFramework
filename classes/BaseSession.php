@@ -49,7 +49,7 @@ class BaseSession implements BaseSessionInterface {
    * @throws BaseSessionException if session class is not a instance of BaseSessionInterface
    */
   public function __construct($session_class = '') {
-    if(empty($session_class) {
+    if(empty($session_class)) {
       $session_class = Config::getInterface('session.class');
     }
 
