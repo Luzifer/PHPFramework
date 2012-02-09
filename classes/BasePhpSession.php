@@ -1,6 +1,6 @@
 <?php
 
-class BasePhpSession implements BaseSesssionInterface {
+class BasePhpSession implements BaseSessionInterface {
 
   /**
    * 
