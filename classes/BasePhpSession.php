@@ -6,7 +6,7 @@ class BasePhpSession implements BaseSesssionInterface {
    * 
    */
   public function __construct() {
-    if (!isset ($_COOKIE[ini_get('session.name')])) {
+    if(!isset($_COOKIE[ini_get('session.name')])) {
       session_start();
     }
   }
