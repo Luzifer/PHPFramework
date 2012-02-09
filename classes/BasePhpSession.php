@@ -3,7 +3,7 @@
 class BasePhpSession implements BaseSessionInterface {
 
   /**
-   * 
+   * @param boolean $testing 
    */
   public function __construct($testing = false) {
     if(!$testing && !isset($_COOKIE[ini_get('session.name')])) {
@@ -11,6 +11,11 @@ class BasePhpSession implements BaseSessionInterface {
     }
   }
 
+  /**
+   * @param string $key
+   * @param midex $value
+   * @return BasePhpSession
+   */
   public function set($key, $value) {
     $key = (string)$key;
     $_SESSION[$key] = $value;
@@ -18,6 +23,11 @@ class BasePhpSession implements BaseSessionInterface {
     return $this; 
   }
 
+  /**
+   * @param string $key
+   * @return mixed
+   * @throws UndifinedIndexException if $key not in $_SESSION
+   */
   public function get($key) {
     $key = (string)$key;
 
@@ -28,11 +38,20 @@ class BasePhpSession implements BaseSessionInterface {
     throw new UndifinedIndexException($key);
   }
 
+  /**
+   * @param string $key
+   * @return boolean
+   */
   public function exist($key) {
     $key = (string)$key;
     return isset($_SESSION[$key]);
   }
 
+  /**
+   * @param string $key
+   * @return BasePhpSession
+   * @throws UndifinedIndexException if $key not in $_SESSION
+   */ 
   public function clear($key) {
     $key = (string)$key;
 
@@ -44,6 +63,9 @@ class BasePhpSession implements BaseSessionInterface {
     throw new UndifinedIndexException($key);
   }
 
+  /**
+   * @return BasePhpSession
+   */
   public function clear_all() {
     session_unset();
     return $this; 

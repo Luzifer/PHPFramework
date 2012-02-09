@@ -10,8 +10,8 @@ interface BaseSessionInterface {
 
   /**
    * @param string $key
-   * @throws BaseSessionUndifinedException
    * @return mixed
+   * @throws UndifinedIndexException
    */
   public function get($key);
 
@@ -23,8 +23,8 @@ interface BaseSessionInterface {
 
   /**
    * @param string $key
-   * @throws BaseSessionUndifinedException 
    * @return BaseSessionInterface
+   * @throws UndifinedIndexException
    */
   public function clear($key);
 
@@ -37,13 +37,11 @@ interface BaseSessionInterface {
 class BaseSession implements BaseSessionInterface {
 
   /**
-   * 
    * @var BaseSessionInterface
    */
   private $session = null;
 
   /**
-   * 
    * @param string $session_class
    * @throws BaseSessionException if session class is not defined
    * @throws BaseSessionException if session class is not a instance of BaseSessionInterface
@@ -65,30 +63,50 @@ class BaseSession implements BaseSessionInterface {
     }
   }
 
+  /**
+   * @param string $key
+   * @param mixed $value
+   * @return BaseSessionInterface
+   */
   public function set($key, $value) {
     $key = (string)$key;
 
     return $this->session->set($key, $value); 
   }
 
+  /**
+   * @param string $key
+   * @return mixed
+   */
   public function get($key) {
     $key = (string)$key;
 
     return $this->session->get($key);
   }
 
+  /**
+   * @param string $key
+   * @return boolean
+   */
   public function exist($key) {
     $key = (string)$key;
 
     return $this->session->exist($key);
   }
 
+  /**
+   * @param string $key
+   * @return BaseSessionInterface
+   */
   public function clear($key) {
     $key = (string)$key;    
 
     return $this->session->clear($key);
   }
 
+  /**
+   * @return BaseSessionInterface
+   */
   public function clear_all() {
     return $this->session->clear_all();
   }
@@ -98,7 +116,10 @@ class BaseSessionException extends Exception {}
 
 class UndifinedIndexException extends Exception {
   
-  public function __construct($key) {
-    parent::__construct('Undifined index ' .$key);
+  /**
+   * @param string $index
+   */  
+  public function __construct($index) {
+    parent::__construct('Undifined index ' . $index);
   }
 }
