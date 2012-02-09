@@ -2,7 +2,6 @@
 interface BaseSessionInterface {
   
   /**
-   * 
    * @param string $key
    * @param mixed $value
    * @return BaseSessionInterface
@@ -10,7 +9,6 @@ interface BaseSessionInterface {
   public function set($key, $value);
 
   /**
-   * 
    * @param string $key
    * @throws BaseSessionUndifinedException
    * @return mixed
@@ -18,7 +16,6 @@ interface BaseSessionInterface {
   public function get($key);
 
   /**
-   * 
    * @param string $key
    * @return boolean
    */
@@ -39,28 +36,55 @@ interface BaseSessionInterface {
 
 class BaseSession implements BaseSessionInterface {
 
+  /**
+   * 
+   * @var BaseSessionInterface
+   */
   private $session = null;
 
-  public function __construct() {
-    $session_class = Config::getInterface('session.class');
+  /**
+   * 
+   * @param string $session_class
+   * @throws BaseSessionException if session class is not defined
+   * @throws BaseSessionException if session class is not a instance of BaseSessionInterface
+   */
+  public function __construct($session_class = '') {
+    if(empty($session_class) {
+      $session_class = Config::getInterface('session.class');
+    }
+
     if(!$session_class) {
-      
+      throw new BaseSessionException('Session class is not defined');      
     }    
+    
+    $this->session = new $session_class();
+    if(!($this->session instanceof BaseSessionInterface)) {
+      $this->sesion = null;
+      throw new BaseSessionException($session_class . ' is not a instance of BaseSessionInterface');
+    }
   }
 
   public function set($key, $value) {
+    $key = (string)$key;
+
     return $this->session->set($key, $value); 
   }
 
   public function get($key) {
+    $key = (string)$key;
+
     return $this->session->get($key);
   }
 
   public function exist($key) {
+    $key = (string)$key;
+
     return $this->session->exist($key);
   }
 
   public function clear($key) {
+    $key = (string)$key;    
+
     return $this->session->clear($key);
   }
 
