@@ -2,8 +2,8 @@
 
 class BasePhpSession implements BaseSesssionInterface {
 
-  public function set($key, $values) {
-
+  public function set($key, $value) {
+ 
   }
 
   public function get($key) {

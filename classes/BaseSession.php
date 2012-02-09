@@ -48,7 +48,7 @@ class BaseSession implements BaseSessionInterface {
     }    
   }
   
-  public function set($key, $values) {
+  public function set($key, $value) {
  
   }
 
