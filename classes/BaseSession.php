@@ -50,7 +50,8 @@ class BaseSession implements BaseSessionInterface {
    */
   public function __construct($session_class = '') {
     if(empty($session_class)) {
-      $session_class = Config::getInterface('session.class');
+      // @todo Install the config class
+      // $session_class = Config::getInstance()->get('session.class');
     }
 
     if(!$session_class) {
