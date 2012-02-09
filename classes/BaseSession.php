@@ -24,7 +24,7 @@ class BaseSession implements BaseSessionInterface {
     
     $this->session = new $session_class();
     if(!($this->session instanceof BaseSessionInterface)) {
-      $this->sesion = null;
+      $this->session = null;
       throw new BaseSessionException($session_class . ' is not a instance of BaseSessionInterface');
     }
   }

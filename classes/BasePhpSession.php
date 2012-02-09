@@ -26,7 +26,7 @@ class BasePhpSession implements BaseSessionInterface {
   /**
    * @param string $key
    * @return mixed
-   * @throws BaseSessionUndifinedIndexException if $key not in $_SESSION
+   * @throws BaseSessionUndefinedIndexException if $key not in $_SESSION
    */
   public function get($key) {
     $key = (string)$key;
@@ -35,7 +35,7 @@ class BasePhpSession implements BaseSessionInterface {
       return $_SESSION[$key];
     }
 
-    throw new BaseSessionUndifinedIndexException($key);
+    throw new BaseSessionUndefinedIndexException($key);
   }
 
   /**
@@ -50,7 +50,7 @@ class BasePhpSession implements BaseSessionInterface {
   /**
    * @param string $key
    * @return BasePhpSession
-   * @throws BaseSessionUndifinedIndexException if $key not in $_SESSION
+   * @throws BaseSessionUndefinedIndexException if $key not in $_SESSION
    */ 
   public function clear($key) {
     $key = (string)$key;
@@ -60,7 +60,7 @@ class BasePhpSession implements BaseSessionInterface {
       return $this;
     }
 
-    throw new BaseSessionUndifinedIndexException($key);
+    throw new BaseSessionUndefinedIndexException($key);
   }
 
   /**

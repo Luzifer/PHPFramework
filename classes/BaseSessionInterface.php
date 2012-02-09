@@ -12,7 +12,7 @@ interface BaseSessionInterface {
   /**
    * @param string $key
    * @return mixed
-   * @throws BaseSessionUndifinedIndexException
+   * @throws BaseSessionUndefinedIndexException
    */
   public function get($key);
 
@@ -25,7 +25,7 @@ interface BaseSessionInterface {
   /**
    * @param string $key
    * @return BaseSessionInterface
-   * @throws BaseSessionUndifinedIndexException
+   * @throws BaseSessionUndefinedIndexException
    */
   public function clear($key);
 
@@ -37,13 +37,13 @@ interface BaseSessionInterface {
 
 class BaseSessionException extends Exception {}
 
-class BaseSessionUndifinedIndexException extends Exception {
+class BaseSessionUndefinedIndexException extends Exception {
 
   /**
    * @param string $index
    */
   public function __construct($index) {
-    parent::__construct('Undifined session index ' . $index);
+    parent::__construct('Undefined session index ' . $index);
   }
 }
 

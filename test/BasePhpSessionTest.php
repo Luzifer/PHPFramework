@@ -15,8 +15,8 @@ class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException BaseSessionUndifinedIndexException
-   * @expectedExceptionMessage Undifined session index foo
+   * @expectedException BaseSessionUndefinedIndexException
+   * @expectedExceptionMessage Undefined session index foo
    */
   public function testClear() {
     $session = new BasePhpSession(true);
@@ -26,8 +26,8 @@ class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException BaseSessionUndifinedIndexException
-   * @expectedExceptionMessage Undifined session index foo2
+   * @expectedException BaseSessionUndefinedIndexException
+   * @expectedExceptionMessage Undefined session index foo2
    */
   public function testClearAll() {
     $session = new BasePhpSession(true);
