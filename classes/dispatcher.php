@@ -43,7 +43,7 @@ class Dispatcher {
     spl_autoload_register('AutoLoader::auto_load');
     set_exception_handler('ErrorHandler::handle_error');
     
-    $config = Config::getInstance();
+    $config = Config::get_instance();
     if($config->get('db.name', null) != null) {
       foreach(array('db.host', 'db.user', 'db.password', 'db.name') as $key) {
         c::set($key, $config->get($key, ''));
@@ -69,7 +69,7 @@ class Dispatcher {
    * 
    * @return Dispatcher
    */
-  static function getInstance() {
+  static function get_instance() {
     if(self::$instance === null) {
       self::$instance = new self;
     }

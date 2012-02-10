@@ -61,7 +61,7 @@ class Config {
    * 
    * @return Config Singleton instance of Config class
    */
-  public static function getInstance() {
+  public static function get_instance() {
     if(self::$instance == null) {
       self::$instance = new self;
     }
@@ -102,7 +102,7 @@ class Config {
    * @return array Key-value pairs in the passed section
    * @throws ConfigException when section has not been found
    */
-  public function getSection($section) {
+  public function get_section($section) {
     if(array_key_exists($section, $this->config)) {
       return $this->config[$section];
     } else {
