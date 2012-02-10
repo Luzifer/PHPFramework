@@ -4,10 +4,18 @@ class BaseHttpHandler {
   
   private $request = null;
   private $response = null;
-  
+  private $session = null;  
+
   public function __construct($request, $response) {
     $this->request = $request;
     $this->response = $response;
+
+    try {
+      $session_class = Config::get_instance()->get('session.class');
+      if($session_class) {
+        $this->session = new Session($session_class);
+      }
+    } catch (ConfigException $e) {}
   }
   
   /**
