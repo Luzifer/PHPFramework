@@ -1,6 +1,7 @@
 <?php
 
-require dirname(__file__) . '/../classes/BaseHttpHandler.php';
+require_once dirname(__file__) . '/../classes/Config.php';
+require_once dirname(__file__) . '/../classes/BaseHttpHandler.php';
 
 class BaseHttpHandlerTest extends PHPUnit_Framework_TestCase {
   
