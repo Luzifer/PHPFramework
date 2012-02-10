@@ -14,18 +14,23 @@ class BaseSession implements BaseSessionInterface {
    */
   public function __construct($session_class = '') {
     if(empty($session_class)) {
-      // @todo Install the config class
-      // $session_class = Config::get_instance()->get('session.class');
+      try {
+        $session_class = Config::get_instance()->get('session.class');
+      } catch (ConfigException $e) {} 
     }
 
     if(!$session_class) {
-      throw new BaseSessionException('Session class is not defined');      
+      throw new BaseSessionException('Session class not defined');      
     }    
     
-    $this->session = new $session_class();
-    if(!($this->session instanceof BaseSessionInterface)) {
-      $this->session = null;
-      throw new BaseSessionException($session_class . ' is not a instance of BaseSessionInterface');
+    if(class_exists($session_class, true)) {
+      $this->session = new $session_class();
+      if(!($this->session instanceof BaseSessionInterface)) {
+        $this->session = null;
+        throw new BaseSessionException($session_class . ' is not a instance of BaseSessionInterface');
+      }
+    } else {
+      throw new BaseSessionException('Session class ' . $session_class . ' not found');
     }
   }
 
