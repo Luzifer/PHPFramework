@@ -1,6 +1,5 @@
 <?php
 
-require_once dirname(__file__) . '/../classes/Config.php';
 require_once dirname(__file__) . '/../classes/BaseSessionInterface.php';
 require_once dirname(__file__) . '/../classes/BaseSession.php';
 

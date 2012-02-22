@@ -4,14 +4,16 @@ class BaseHttpHandler {
   
   private $request = null;
   private $response = null;
-  private $session = null;  
+  private $session = null;
+  private $config = null;
 
-  public function __construct($request, $response) {
+  public function __construct($request, $response, $config) {
     $this->request = $request;
     $this->response = $response;
+    $this->config = $config;
 
     try {
-      $session_class = Config::get_instance()->get('session.class');
+      $session_class = $this->config->get('session.class');
       if($session_class) {
         $this->session = new Session($session_class);
       }
