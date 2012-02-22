@@ -1,5 +1,7 @@
 <?php
 
+require_once(dirname(__FILE__) . '/IConfigReader.php');
+
 class ConfigIni implements IConfigReader {
   private $config = null;
 
