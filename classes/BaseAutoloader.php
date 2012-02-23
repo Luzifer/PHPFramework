@@ -32,6 +32,13 @@ class BaseAutoLoader {
       // Try the assembled stuff in lowercase
       $chances[] = rtrim(self::$base_autoloader_app_path, '/') . '/' . strtolower(join('/', $class_parts)) . '.php';
 
+      // Try to handle the first part as a dir and the rest as a file
+      $parts = array();
+      for($i = 1; $i < count($class_parts); $i++) {
+        $parts[] = $class_parts[$i];
+      }
+      $chances[] = rtrim(self::$base_autoloader_app_path, '/') . '/' . strtolower($class_parts[0]) . '/' . join('', $parts) . '.php';
+
       // There might be four more choises to check for the class file
       $parts = array();
       for($i = 0; $i < count($class_parts) - 1; $i++) {
