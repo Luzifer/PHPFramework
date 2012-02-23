@@ -1,11 +1,23 @@
 <?php
 
 class BaseHttpHandler {
-  
-  private $request = null;
-  private $response = null;
-  private $session = null;
-  private $config = null;
+
+  /**
+   * @var BaseHttpRequest
+   */
+  protected $request = null;
+  /**
+   * @var BaseHttpResponse
+   */
+  protected $response = null;
+  /**
+   * @var BaseSession
+   */
+  protected $session = null;
+  /**
+   * @var IConfigReader
+   */
+  protected $config = null;
 
   public function __construct($request, $response, $config) {
     $this->request = $request;
