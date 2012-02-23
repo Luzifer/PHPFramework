@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+#### Use this when everything is running normal
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .? /index.php [L]
+
+#### You are using PHP as CGI? Use this method
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule .? /index.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+#### Still not working? Change server or use this evil hack
+# RewriteCond %{HTTP:Authorization}  !^$
+# RewriteRule .? /index.php?HTTP_AUTHORIZATION=%{HTTP:Authorization} [QSA,L]
+# RewriteRule .? /index.php [L]
