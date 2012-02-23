@@ -1,8 +1,6 @@
 <?php
 
-$path_to_dispatcher = '%%FRAMEWORK%%/dispatcher.php';
-
-require_once $path_to_dispatcher;
+require_once '%%FRAMEWORK%%/dispatcher.php';
 
 $dispatcher = new Dispatcher(
     new ConfigIni('%%APPDIR%%/settings.ini', null)
