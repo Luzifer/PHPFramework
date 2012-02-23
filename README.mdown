@@ -27,6 +27,7 @@ the framework itself you should check whether your app is still compatible with 
 1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
 For example this could look like this:
+
     $ cd ~/src
     $ mkdir -p newproject/lib/framework
     $ cd newproject/lib/framework
@@ -43,6 +44,7 @@ Your application is now ready and filled with some basic examples. The rest is u
 1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
 For example this could look like this:
+
     $ cd ~/src
     $ mkdir newproject
     $ cd newproject
