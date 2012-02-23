@@ -52,7 +52,7 @@ class ConfigIni implements IConfigReader {
    * @throws ConfigIniSectionNotFoundException when section $config_section_name does not exist
    */
   public function getSection($config_section_name) {
-    if(array_key_exists($config_section_name, $this->local_config)) {
+    if($this->local_config !== null && array_key_exists($config_section_name, $this->local_config)) {
       return $this->local_config[$config_section_name];
     }
     
