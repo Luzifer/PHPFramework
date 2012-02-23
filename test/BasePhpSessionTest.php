@@ -1,7 +1,7 @@
 <?php
 
-require_once dirname(__file__) . '/../classes/BaseSessionInterface.php';
-require_once dirname(__file__) . '/../classes/BasePhpSession.php';
+require_once dirname(__FILE__) . '/../classes/BaseSessionInterface.php';
+require_once dirname(__FILE__) . '/../classes/BasePhpSession.php';
 
 class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
 

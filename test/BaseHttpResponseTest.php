@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__file__) . '/../classes/BaseHttpResponse.php';
+require dirname(__FILE__) . '/../classes/BaseHttpResponse.php';
 
 class BaseHttpResponseTest extends PHPUnit_Framework_TestCase {
   
