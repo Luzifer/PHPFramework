@@ -13,15 +13,6 @@ class BaseSession implements BaseSessionInterface {
    * @throws BaseSessionException if session class is not a instance of BaseSessionInterface
    */
   public function __construct($session_class = '') {
-    /*
-     * TODO: Remove deprecated config calls
-    if(empty($session_class)) {
-      try {
-        $session_class = Config::get_instance()->get('session.class');
-      } catch (ConfigException $e) {} 
-    }
-    */
-
     if(!$session_class) {
       throw new BaseSessionException('Session class not defined');      
     }    
