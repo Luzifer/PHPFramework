@@ -29,6 +29,11 @@ class Dispatcher {
       throw new ApplicationPartMissingException('Routes file "' . $routefile . '" does not exist.');
     }
 
+    $template_dir = rtrim($this->application_directory, '/') . '/templates/';
+    if(!is_dir($template_dir)) {
+      throw new ApplicationPartMissingException('Template directory "' . $template_dir . '" does not exist.');
+    }
+
     BaseAutoLoader::register_app_path($application_directory);
     spl_autoload_register('BaseAutoLoader::auto_load');
 
@@ -77,7 +82,7 @@ class Dispatcher {
 
       $responder = new $responder_class(
           new BaseHttpRequest($method)
-        , new BaseHttpResponse($this->config)
+        , new BaseHttpResponse($this->config, rtrim($this->application_directory, '/') . '/templates/')
         , $this->config
       );
       

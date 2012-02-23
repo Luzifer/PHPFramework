@@ -1,13 +1,17 @@
 <?php
 
+require_once(dirname(__FILE__) . '/../lib/Twig/Autoloader.php');
+
 class BaseHttpResponse {
   
   private $template_vars = array();
   private $headers = array();
   private $config = null;
+  private $template_directory = null;
 
-  public function __construct($config) {
+  public function __construct($config, $template_directory) {
     $this->config = $config;
+    $this->template_directory = $template_directory;
   }
   
   /**
@@ -42,6 +46,32 @@ class BaseHttpResponse {
    */
   public function set($template_variable_name, $template_variable_value) {
     $this->template_vars[$template_variable_name] = $template_variable_value;
+  }
+
+  /**
+   * @param string $template_name Name of the template in the template directory without extension
+   * @return string
+   */
+  public function render($template_name) {
+    $template = $this->get_template_environment($template_name);
+    return $template->render($this->template_vars);
+  }
+
+  /**
+   * @param string $template_name Name of the template in the template directory without extension
+   */
+  public function display($template_name) {
+    $template = $this->get_template_environment($template_name);
+    $template->display($this->template_vars);
+  }
+
+  private function get_template_environment($template_name) {
+    Twig_Autoloader::register();
+    $loader = new Twig_Loader_Filesystem($this->template_directory);
+    $twig = new Twig_Environment($loader);
+    $template = $twig->loadTemplate($template_name . '.html');
+
+    return $template;
   }
   
 }
