@@ -77,7 +77,7 @@ class Dispatcher {
 
       $responder = new $responder_class(
           new BaseHttpRequest($method)
-        , new BaseHttpResponse()
+        , new BaseHttpResponse($this->config)
         , $this->config
       );
       

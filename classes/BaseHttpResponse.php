@@ -4,6 +4,11 @@ class BaseHttpResponse {
   
   private $template_vars = array();
   private $headers = array();
+  private $config = null;
+
+  public function __construct($config) {
+    $this->config = $config;
+  }
   
   /**
    * Sets a header to the specified value for delivery when the page is rendered
