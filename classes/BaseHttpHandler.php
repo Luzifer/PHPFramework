@@ -15,9 +15,9 @@ class BaseHttpHandler {
     try {
       $session_class = $this->config->get('session.class');
       if($session_class) {
-        $this->session = new Session($session_class);
+        $this->session = new BaseSession($session_class);
       }
-    } catch (ConfigException $e) {}
+    } catch (BaseSessionException $e) {}
   }
   
   /**
