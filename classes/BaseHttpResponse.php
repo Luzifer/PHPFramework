@@ -49,6 +49,8 @@ class BaseHttpResponse {
   }
 
   /**
+   * Renders the template with the previously defined variables and returns the rendered version
+   *
    * @param string $template_name Name of the template in the template directory without extension
    * @return string
    */
@@ -58,6 +60,8 @@ class BaseHttpResponse {
   }
 
   /**
+   * Renders the template with the previously defined variables and sends the result to stdout
+   *
    * @param string $template_name Name of the template in the template directory without extension
    */
   public function display($template_name) {
