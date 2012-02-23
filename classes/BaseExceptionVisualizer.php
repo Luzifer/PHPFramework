@@ -5,25 +5,47 @@ require_once(dirname(__FILE__) . '../lib/Twig/Autoloader.php');
 class BaseExceptionVisualizer {
   private static $display_template = null;
 
-  public static function set_display_template($template) {
-    self::$display_template = $template;
+  /**
+   * Sets the path to the template used to render uncaught exceptions
+   *
+   * @static
+   * @param string $template_path Full path to the template for rendering exceptions
+   */
+  public static function set_display_template($template_path) {
+    self::$display_template = $template_path;
   }
 
+  /**
+   * Returns the current used template path or null when no template path is set
+   *
+   * @static
+   * @return string|null
+   */
   public static function get_display_template() {
     return self::$display_template;
   }
 
+  /**
+   * Renders the exception display and puts it to stdout
+   *
+   * @static
+   * @param Exception $exception The exception which occured
+   */
   public static function render_exception($exception) {
     header('HTTP/1.1 500 Internal Server Error');
     header('Cache-Control: no-cache');
     $template_vars = self::generate_template_vars($exception);
 
-    Twig_Autoloader::register();
+    if(self::$display_template !== null) {
+      Twig_Autoloader::register();
 
-    $loader = new Twig_Loader_Filesystem(dirname(self::$display_template));
-    $twig = new Twig_Environment($loader);
-    $template = $twig->loadTemplate(basename(self::$display_template));
-    $template->display($template_vars);
+      $loader = new Twig_Loader_Filesystem(dirname(self::$display_template));
+      $twig = new Twig_Environment($loader);
+      $template = $twig->loadTemplate(basename(self::$display_template));
+      $template->display($template_vars);
+    } else {
+      var_dump($template_vars);
+    }
   }
 
   private static function generate_template_vars($exception) {
