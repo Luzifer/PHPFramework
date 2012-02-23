@@ -17,73 +17,40 @@ As long as you are working on the same version all the time you should be fine b
 the framework itself you should check whether your app is still compatible with the new version.
 
 # How to install this framework
+## From a download
 
 1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master) 
    or see the [Download](https://github.com/Luzifer/PHPFramework/downloads) section for more
    options.
-1. Put it on the server in a directory outside the Document Root to use all security features
-   built in.
-1. Set the document root to the **/public/** directory
-1. If you need it set up a MySQL database and user and put the settings to the **/config/settings.ini**
+1. Create a new empty directory and in that directory create a folder `lib/framework`
+1. Put the contents of the tar file into that framework directory
+1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
-If you have no chance to run the framework with DocumentRoot set to **/public/** you also can move
-all files of **/public/** to the main directory, put this into any subdirectory and modify the 
-**.htaccess** file for your needs. I recommend to add one **.htaccess** file to each directory you
-don't need to access directly (classes, config, docs, handlers, helpers, lib, templates) with this 
-content to get a little bit of security back:
+For example this could look like this:
+    $ cd ~/src
+    $ mkdir -p newproject/lib/framework
+    $ cd newproject/lib/framework
+    $ tar -xzf ~/Downloads/Luzifer-PHPFramework-8f124cb.tar.gz
+    $ cd ~/src/newproject
+    $ php lib/framework/scripts/create_app.php mynewapplication
 
-    Order allow,deny
-    Deny from all
+Your application is now ready and filled with some basic examples. The rest is up to you.
 
-This tiny bash script can help you to do this. It has to be executed from the
-main directory:
+## As a GIT submodule
 
-    #!/bin/bash
-    for i in $(find . -type d -mindepth 1); do
-      echo -e "Order allow,deny\nDeny from all" >> $i/.htaccess
-    done
+1. Create a new GIT repository or get into your existing git repository
+1. Do a `git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework`
+1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
-# Things you should try after installing
+For example this could look like this:
+    $ cd ~/src
+    $ mkdir newproject
+    $ cd newproject
+    $ git init
+    $ git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework
+    $ php lib/framework/scripts/create_app.php mynewapplication
 
-1. Look at the configuration at **/config/settings.ini**
-1. Define your own URL handler at **/config/urls.php**
-1. Write your own handler class and place them to **/handler/**
-1. Modify the existing or write your own templates in **/templates/**
-1. Place your static resources somewhere in **/public/**
-1. Add the directory **/template/cache** with chmod 777 to support template caching
-
-If you have done all of that points I'm pretty sure you got how this
-framework is supposed to work. Now you can build nearly everything 
-with this. 
-
-You are missing something? Just implement it and send me
-a patch file or pull request for your work!
-
-# License
-
-Copyright (c) 2011 Knut Ahlers <knut@ahlers.me>   
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are met:
-
-- Redistributions of source code must retain the above copyright notice, this 
-  list of conditions and the following disclaimer.
-- Redistributions in binary form must reproduce the above copyright notice, 
-  this list of conditions and the following disclaimer in the documentation 
-  and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-POSSIBILITY OF SUCH DAMAGE.
+Your application is now ready and filled with some basic examples. The rest is up to you.
 
 # Changes
 
