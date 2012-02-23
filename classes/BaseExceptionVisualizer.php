@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__) . '../lib/Twig/Autoloader.php');
+require_once(dirname(__FILE__) . '/../lib/Twig/Autoloader.php');
 
 class BaseExceptionVisualizer {
   private static $display_template = null;
@@ -32,8 +32,10 @@ class BaseExceptionVisualizer {
    * @param Exception $exception The exception which occured
    */
   public static function render_exception($exception) {
-    header('HTTP/1.1 500 Internal Server Error');
-    header('Cache-Control: no-cache');
+    if(!headers_sent()) {
+      header('HTTP/1.1 500 Internal Server Error');
+      header('Cache-Control: no-cache');
+    }
     $template_vars = self::generate_template_vars($exception);
 
     if(self::$display_template !== null) {
@@ -68,9 +70,9 @@ class BaseExceptionVisualizer {
       $result[] = sprintf(
         $traceline,
         $key,
-        $stackPoint['file'],
-        $stackPoint['line'],
-        $stackPoint['function'],
+        (array_key_exists('file', $stackPoint) ? $stackPoint['file'] : 'undefined'),
+        (array_key_exists('line', $stackPoint) ? $stackPoint['line'] : 'undefined'),
+        (array_key_exists('function', $stackPoint) ? $stackPoint['function'] : 'undefined'),
         implode(', ', $stackPoint['args'])
       );
     }
