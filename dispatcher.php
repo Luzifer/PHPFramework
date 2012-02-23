@@ -12,6 +12,11 @@ class Dispatcher {
   private $application_directory = null;
 
   public function __construct($config, $application_directory) {
+    if(BaseExceptionVisualizer::get_display_template() === null) {
+      BaseExceptionVisualizer::set_display_template(dirname(__FILE__) . '/resources/exeption_template.html');
+    }
+    set_exception_handler('BaseExceptionVisualizer::render_exception');
+
     $this->config = $config;
     $this->application_directory = realpath($application_directory);
 
@@ -26,11 +31,6 @@ class Dispatcher {
 
     BaseAutoLoader::register_app_path($application_directory);
     spl_autoload_register('BaseAutoLoader::auto_load');
-
-    if(BaseExceptionVisualizer::get_display_template() === null) {
-      BaseExceptionVisualizer::set_display_template(dirname(__FILE__) . '/resources/exeption_template.html');
-    }
-    set_exception_handler('BaseExceptionVisualizer::render_exception');
 
 
 /*
