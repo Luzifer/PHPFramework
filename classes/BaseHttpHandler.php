@@ -19,6 +19,11 @@ class BaseHttpHandler {
    */
   protected $config = null;
 
+  /**
+   * @param BaseHttpRequest $request
+   * @param BaseHttpResponse $response
+   * @param IConfigReader $config
+   */
   public function __construct($request, $response, $config) {
     $this->request = $request;
     $this->response = $response;
