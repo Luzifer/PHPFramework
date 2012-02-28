@@ -69,3 +69,5 @@ class BaseAutoLoader {
   }
   
 }
+
+spl_autoload_register('BaseAutoLoader::auto_load');

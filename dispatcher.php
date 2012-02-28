@@ -35,7 +35,6 @@ class Dispatcher {
     }
 
     BaseAutoLoader::register_app_path($application_directory);
-    spl_autoload_register('BaseAutoLoader::auto_load');
 
 
 /*
