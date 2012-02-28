@@ -13,7 +13,7 @@ class Dispatcher {
 
   public function __construct($config, $application_directory) {
     if(BaseExceptionVisualizer::get_display_template() === null) {
-      BaseExceptionVisualizer::set_display_template(dirname(__FILE__) . '/resources/exeption_template.html');
+      BaseExceptionVisualizer::set_display_template(dirname(__FILE__) . '/resources/exception_template.html');
     }
     set_exception_handler('BaseExceptionVisualizer::render_exception');
 
