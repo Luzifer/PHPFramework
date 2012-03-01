@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/mysql.php';
+require_once dirname(__FILE__) . '/MySQL.php';
 
 class SimpleMigrator {
   private $connection;
