@@ -4,14 +4,31 @@ class BaseAutoLoader {
   private static $base_autoloader_app_path = null;
   private static $base_autoloader_library_paths = array();
 
+  /**
+   * @static
+   * @param string $app_path Path to the application directory containing config and routing
+   */
   public static function register_app_path($app_path) {
     self::$base_autoloader_app_path = $app_path;
   }
 
+  /**
+   * @static
+   * @param string $library_path Full path to the library directory to load from
+   */
   public static function register_library_path($library_path) {
     if(!in_array($library_path, self::$base_autoloader_library_paths)) {
       self::$base_autoloader_library_paths[] = $library_path;
     }
+  }
+
+  /**
+   * @static
+   * @param string $library_name Name of the directory in framwork lib path
+   */
+  public static function register_base_lib($library_name) {
+    $path = dirname(__FILE__) . '/../lib/' . $library_name;
+    self::register_library_path($path);
   }
   
   public static function auto_load($class) {
