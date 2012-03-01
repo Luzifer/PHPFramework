@@ -2,6 +2,8 @@
 
 require_once '%%FRAMEWORK%%/dispatcher.php';
 
+// BaseAutoLoader::register_base_lib('mysql');
+
 $dispatcher = new Dispatcher(
     new ConfigIni('%%APPDIR%%/settings.ini', null)
   , '%%APPDIR%%'
