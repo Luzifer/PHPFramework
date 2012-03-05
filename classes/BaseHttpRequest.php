@@ -3,9 +3,9 @@
 class BaseHttpRequest {
   
   private $value_sources = array(
-      'GET' => array('default' => 'get', 'fallback' => 'post')
-    , 'POST' => array('default' => 'post', 'fallback' => 'get')
-    , 'HEAD' => array('default' => 'get', 'fallback' => 'post')
+      'get' => array('default' => 'get', 'fallback' => 'post')
+    , 'post' => array('default' => 'post', 'fallback' => 'get')
+    , 'head' => array('default' => 'get', 'fallback' => 'post')
   );
   private $request_method = null;
   
