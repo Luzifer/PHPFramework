@@ -1,6 +1,6 @@
 <?php
 
-class BasePhpSession implements BaseSessionInterface {
+class BasePHPSession implements BaseSessionInterface {
 
   /**
    * @param boolean $testing for phpunit
@@ -14,7 +14,7 @@ class BasePhpSession implements BaseSessionInterface {
   /**
    * @param string $key
    * @param mixed $value
-   * @return BasePhpSession
+   * @return BasePHPSession
    */
   public function set($key, $value) {
     $key = (string)$key;
@@ -49,7 +49,7 @@ class BasePhpSession implements BaseSessionInterface {
 
   /**
    * @param string $key
-   * @return BasePhpSession
+   * @return BasePHPSession
    * @throws BaseSessionUndefinedIndexException if $key not in $_SESSION
    */ 
   public function clear($key) {
@@ -64,7 +64,7 @@ class BasePhpSession implements BaseSessionInterface {
   }
 
   /**
-   * @return BasePhpSession
+   * @return BasePHPSession
    */
   public function clear_all() {
     session_unset();

@@ -1,9 +1,9 @@
 <?php
 
 require_once dirname(__FILE__) . '/../classes/BaseSessionInterface.php';
-require_once dirname(__FILE__) . '/../classes/BasePhpSession.php';
+require_once dirname(__FILE__) . '/../classes/BasePHPSession.php';
 
-class BasePhpSessionTest extends PHPUnit_Framework_TestCase {
+class BasePHPSessionTest extends PHPUnit_Framework_TestCase {
 
   public function testSetAndGet() {
     $session = new BasePhpSession(true);
