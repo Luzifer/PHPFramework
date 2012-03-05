@@ -11,10 +11,11 @@ interface BaseSessionInterface {
 
   /**
    * @param string $key
+   * @param mixed $default Default value to return when key is not found
    * @return mixed
    * @throws BaseSessionUndefinedIndexException
    */
-  public function get($key);
+  public function get($key, $default = null);
 
   /**
    * @param string $key
