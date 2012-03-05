@@ -41,9 +41,10 @@ class BaseSession implements BaseSessionInterface {
 
   /**
    * @param string $key
+   * @param mixed $default
    * @return mixed
    */
-  public function get($key) {
+  public function get($key, $default = null) {
     $key = (string)$key;
 
     return $this->session->get($key);

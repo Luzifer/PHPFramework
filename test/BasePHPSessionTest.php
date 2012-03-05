@@ -25,14 +25,10 @@ class BasePHPSessionTest extends PHPUnit_Framework_TestCase {
     echo $session->get('foo');
   }
 
-  /**
-   * @expectedException BaseSessionUndefinedIndexException
-   * @expectedExceptionMessage Undefined session index foo2
-   */
   public function testClearAll() {
     $session = new BasePhpSession(true);
     $session->clear_all();
     
-    echo $session->get('foo2');
+    $this->assertEquals(null, $session->get('foo2', null));
   }
 }
