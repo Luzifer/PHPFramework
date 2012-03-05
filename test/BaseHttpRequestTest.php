@@ -25,17 +25,17 @@ class BaseHttpRequestTest extends PHPUnit_Framework_TestCase {
   }
   
   public function testGetParameter() {
-    $request = new BaseHttpRequest('GET');
+    $request = new BaseHttpRequest('get');
     $this->assertEquals('1234', $request->get('param1', false, false));
   }
   
   public function testGetParameterWithStrictEnabledNotExisting() {
-    $request = new BaseHttpRequest('GET');
+    $request = new BaseHttpRequest('get');
     $this->assertEquals(null, $request->get('param3', null, true));
   }
   
   public function testGetPOSTParameter() {
-    $request = new BaseHttpRequest('POST');
+    $request = new BaseHttpRequest('post');
     $this->assertEquals(null, $request->get('param6', null));
     $this->assertEquals('2345', $request->get('param4'));
   }
