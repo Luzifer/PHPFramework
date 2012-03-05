@@ -13,7 +13,7 @@ class BasePhpSession implements BaseSessionInterface {
 
   /**
    * @param string $key
-   * @param midex $value
+   * @param mixed $value
    * @return BasePhpSession
    */
   public function set($key, $value) {
