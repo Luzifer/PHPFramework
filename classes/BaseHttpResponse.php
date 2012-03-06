@@ -65,8 +65,37 @@ class BaseHttpResponse {
    * @param string $template_name Name of the template in the template directory without extension
    */
   public function display($template_name) {
+    $this->send_headers();
     $template = $this->get_template_environment($template_name);
     $template->display($this->template_vars);
+  }
+
+  /**
+   * Sets the location header including the HTTP status header for redirects
+   *
+   * @param string $target The target to use in location header
+   * @param int $http_code The HTTP code to use (301 = Moved Permanent, 302 = Moved Temporary, 303 = See Other)
+   */
+  public function redirect($target, $http_code = 302) {
+    $this->header('Location', $target);
+    switch($http_code) {
+      case 301:
+        header("HTTP/1.1 301 Moved Permanently");
+        break;
+      case 302:
+        header("HTTP/1.1 302 Moved Temporarily");
+        break;
+      case 303:
+        header("HTTP/1.1 303 See Other");
+        break;
+    }
+    $this->send_headers();
+  }
+
+  private function send_headers() {
+    foreach($this->headers as $header => $value) {
+      header($header . ': ' . $value);
+    }
   }
 
   private function get_template_environment($template_name) {
