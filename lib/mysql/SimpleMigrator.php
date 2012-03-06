@@ -38,6 +38,9 @@ class SimpleMigrator {
     if(count($this->connection->query("SHOW TABLES LIKE 'migration_ver'")) < 1) {
       $sql = "CREATE TABLE IF NOT EXISTS `migration_ver` (`version` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
       $this->connection->execute($sql);
+    }
+
+    if($this->connection->count('migration_ver') < 1) {
       $this->connection->insert('migration_ver', array('version' => $version));
     } else {
       $this->connection->update('migration_ver', array('version' => $version), '1 = 1');
@@ -86,7 +89,7 @@ class SimpleMigrator {
     $this->connection->connect();
     do {
       $next_migration = $this->get_current_migration_version() + 1;
-      if($next_migration >= count($migration_files)) {
+      if(!array_key_exists($next_migration, $migration_files)) {
         break;
       }
       $next_path = rtrim($this->migration_directory, '/') . '/' . $migration_files[$next_migration];
