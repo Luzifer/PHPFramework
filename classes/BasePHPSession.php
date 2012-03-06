@@ -6,7 +6,7 @@ class BasePHPSession implements BaseSessionInterface {
    * @param boolean $testing for phpunit
    */
   public function __construct($testing = false) {
-    if(!$testing && !isset($_COOKIE[session_name()])) {
+    if(!$testing) {
       session_start();
     }
   }
