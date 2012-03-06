@@ -74,8 +74,10 @@ class SimpleMigrator {
     $matches = array();
     if($handle = opendir($this->migration_directory)) {
       while($file = readdir($handle)) {
-        if(preg_match('/^([0-9]+)_.*\.sql$/', $file, $matches) > 0 ||
-            preg_match('/^([0-9]+)\.sql$/', $file, $matches) > 0) {
+        if(preg_match('/^([0-9]+)_.*\.sql$/', $file, $matches) > 0) {
+          $migration_files[(int)$matches[1]] = $file;
+        }
+        if(preg_match('/^([0-9]+)\.sql$/', $file, $matches) > 0) {
           $migration_files[(int)$matches[1]] = $file;
         }
       }
