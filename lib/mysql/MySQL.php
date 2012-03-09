@@ -66,6 +66,15 @@ class MySQL {
 
     return $connection;
   }
+
+  /**
+   * Checks whether the connection to the database is established
+   *
+   * @return bool
+   */
+  public function is_connected() {
+    return $this->connection() !== null;
+  }
   
   private function connection() {
     return (is_resource($this->connection)) ? $this->connection : null;
