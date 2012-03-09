@@ -60,8 +60,9 @@ class SimpleMigrator {
     $sqlArray = explode(';', $sqlFile);
     foreach($sqlArray as $stmt) {
       if(strlen($stmt) > 3 && substr(ltrim($stmt), 0, 2) != '/*') {
-        $result = $this->connection->execute($stmt);
-        if(!$result) {
+        try {
+          $this->connection->execute($stmt);
+        } catch(DBQueryException $ex) {
           $this->connection->execute('ROLLBACK;');
           throw new SimpleMigratorException('An error occured while executing query of "' . $filename . '": "' . $stmt . '"');
         }
