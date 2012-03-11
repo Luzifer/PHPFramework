@@ -71,6 +71,19 @@ class BaseHttpResponse {
   }
 
   /**
+   * Sends an json encoded object to the browser using correct content type
+   *
+   * @param mixed $object Object (most likely an array) to json encode
+   */
+  public function json_output($object) {
+    $this->header('Content-Type', 'application/json');
+    $this->send_headers();
+
+    echo json_encode($object);
+    exit();
+  }
+
+  /**
    * Sets the location header including the HTTP status header for redirects
    *
    * @param string $target The target to use in location header
