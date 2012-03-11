@@ -74,13 +74,20 @@ class BaseHttpResponse {
    * Sends an json encoded object to the browser using correct content type
    *
    * @param mixed $object Object (most likely an array) to json encode
+   * @param null|string $callback If set to string answer will be sent as JSONP output with this function
    */
-  public function json_output($object) {
-    $this->header('Content-Type', 'application/json');
+  public function json_output($object, $callback = null) {
+    if($callback !== null) {
+      $ctype = 'text/javascript';
+      $output = $callback . '(' . json_encode($object) . ');';
+    } else {
+      $ctype = 'application/json';
+      $output = json_encode($object);
+    }
+    $this->header('Content-Type', $ctype);
     $this->send_headers();
 
-    echo json_encode($object);
-    exit();
+    die($output);
   }
 
   /**
