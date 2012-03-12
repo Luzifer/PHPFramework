@@ -151,7 +151,7 @@ class MySQL {
 
     // set the new charset
     $sql = 'SET NAMES ' . $charset;
-    $this->query($sql, false);
+    $this->execute($sql, false);
 
     // save the new charset to the globals
     $this->charset = $charset;
