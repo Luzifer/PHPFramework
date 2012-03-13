@@ -11,7 +11,7 @@ class BaseHttpHandler {
    */
   protected $response = null;
   /**
-   * @var BaseSession
+   * @var BaseSessionInterface
    */
   protected $session = null;
   /**
@@ -31,8 +31,14 @@ class BaseHttpHandler {
 
     try {
       $session_class = $this->config->get('session.class');
-      if($session_class) {
-        $this->session = new BaseSession($session_class);
+      if(class_exists($session_class, true)) {
+        $this->session = new $session_class($config);
+        if(!($this->session instanceof BaseSessionInterface)) {
+          $this->session = null;
+          throw new BaseSessionException($session_class . ' is not a instance of BaseSessionInterface');
+        }
+      } else {
+        throw new BaseSessionException('Session class ' . $session_class . ' not found');
       }
     } catch (BaseSessionException $e) {}
   }
