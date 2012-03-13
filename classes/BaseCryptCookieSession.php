@@ -21,12 +21,13 @@ class BaseCryptCookieSession implements BaseSessionInterface {
    */
   public function __construct($config) {
     $this->config = $config;
-    $this->decodeCryptCookie();
-
     $this->cookie_name = $this->config->get('cookie.name', 'SecureSessionCookie');
+
     if($this->config->get('cookie.encrypt_key', null) === null) {
       throw new BaseCryptCookieSessionException('Config key "cookie.encrypt_key" must be set!');
     }
+    
+    $this->decodeCryptCookie();
   }
 
   /**
