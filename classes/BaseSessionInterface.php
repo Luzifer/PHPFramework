@@ -3,6 +3,11 @@
 interface BaseSessionInterface {
 
   /**
+   * @param IConfigReader $config
+   */
+  public function __construct($config);
+
+  /**
    * @param string $key
    * @param mixed $value 
    * @return BaseSessionInterface
@@ -13,7 +18,6 @@ interface BaseSessionInterface {
    * @param string $key
    * @param mixed $default Default value to return when key is not found
    * @return mixed
-   * @throws BaseSessionUndefinedIndexException
    */
   public function get($key, $default = null);
 

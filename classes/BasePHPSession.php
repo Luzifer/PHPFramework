@@ -3,12 +3,10 @@
 class BasePHPSession implements BaseSessionInterface {
 
   /**
-   * @param boolean $testing for phpunit
+   * @param IConfigReader $config for phpunit
    */
-  public function __construct($testing = false) {
-    if(!$testing) {
+  public function __construct($config) {
       session_start();
-    }
   }
 
   /**
