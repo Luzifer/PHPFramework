@@ -20,8 +20,8 @@ class BaseCryptCookieSession implements BaseSessionInterface {
    * @param IConfigReader $config
    */
   public function __construct($config) {
-    $this->decodeCryptCookie();
     $this->config = $config;
+    $this->decodeCryptCookie();
 
     $this->cookie_name = $this->config->get('cookie.name', 'SecureSessionCookie');
     if($this->config->get('cookie.encrypt_key', null) === null) {
