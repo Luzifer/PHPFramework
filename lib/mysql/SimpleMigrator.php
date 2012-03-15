@@ -56,6 +56,9 @@ class SimpleMigrator {
     $this->connection->execute('START TRANSACTION;');
 
     $f = fopen($filename, "r+");
+    if($f === false) {
+      throw new SimpleMigratorException('Unable to open file "' . $filename . '"');
+    }
     $sqlFile = fread($f, filesize($filename));
     $sqlArray = explode(';', $sqlFile);
     foreach($sqlArray as $stmt) {
