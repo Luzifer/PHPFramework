@@ -55,7 +55,7 @@ class SimpleMigrator {
     $this->connection->execute('SET autocommit = 0;');
     $this->connection->execute('START TRANSACTION;');
 
-    $f = fopen($filename, "r+");
+    $f = @fopen($filename, "r");
     if($f === false) {
       throw new SimpleMigratorException('Unable to open file "' . $filename . '"');
     }
