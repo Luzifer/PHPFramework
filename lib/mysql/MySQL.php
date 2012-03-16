@@ -515,7 +515,7 @@ class MySQL {
         foreach($value as $v) {
           $arr[] = $this->escape($v);
         }
-        $output[] = '`' . $field . '`' . ' ' . $operand2 . ' (' . implode(',', $arr) . ')';
+        $output[] = '`' . $field . '`' . ' ' . $operand2 . ' (\'' . implode('\', \'', $arr) . '\')';
       } else {
         $output[] = '`' . $field . '`' . ' ' . $operand . ' \'' . $this->escape($value) . '\'';
       }
