@@ -8,6 +8,8 @@ class BaseHttpResponse {
   private $headers = array();
   private $config = null;
   private $template_directory = null;
+  private $output_filters = array();
+  private $output_functions = array();
 
   public function __construct($config, $template_directory) {
     $this->config = $config;
@@ -112,6 +114,26 @@ class BaseHttpResponse {
     $this->send_headers();
   }
 
+  /**
+   * Adds a filter to use in the template
+   *
+   * @param $name string Name of the filter to use in the template
+   * @param $function string Name of the function to execute for the value from the template
+   */
+  public function add_output_filter($name, $function) {
+    $this->output_filters[$name] = $function;
+  }
+
+  /**
+   * Adds a function to use in the template
+   *
+   * @param $name string Name of the function to use in the template
+   * @param $function string Name of the function to execute for the value from the template
+   */
+  public function add_output_function($name, $function) {
+    $this->output_functions[$name] = $function;
+  }
+
   private function send_headers() {
     foreach($this->headers as $header => $value) {
       header($header . ': ' . $value);
@@ -122,6 +144,27 @@ class BaseHttpResponse {
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem($this->template_directory);
     $twig = new Twig_Environment($loader);
+
+    if(!empty($this->output_functions)) {
+      foreach($this->output_functions as $key => $value) {
+        if(is_array($value)) {
+          $twig->addFunction($key, new Twig_Function_Function($value[0] .'::'. $value[1]));
+        } else {
+          $twig->addFunction($key, new Twig_Function_Function($value));
+        }
+      }
+    }
+
+    if(!empty($this->output_filters)) {
+      foreach($this->output_filters as $key => $value) {
+        if(is_array($value)) {
+          $twig->addFilter($key, new Twig_Filter_Function($value[0] .'::'. $value[1]));
+        } else {
+          $twig->addFilter($key, new Twig_Filter_Function($value));
+        }
+      }
+    }
+
     $template = $twig->loadTemplate($template_name . '.html');
 
     return $template;
