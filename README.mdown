@@ -17,9 +17,27 @@ As long as you are working on the same version all the time you should be fine b
 the framework itself you should check whether your app is still compatible with the new version.
 
 # How to install this framework
+## As a GIT submodule (Recommended)
+
+1. Create a new GIT repository or get into your existing git repository
+1. Do a `git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework`
+1. Ensure you are running the `subdir` branch as only this is suiteable for sumbodule usage
+1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
+
+For example this could look like this:
+
+    $ cd ~/src
+    $ mkdir newproject
+    $ cd newproject
+    $ git init
+    $ git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework
+    $ php lib/framework/scripts/create_app.php mynewapplication
+
+Your application is now ready and filled with some basic examples. The rest is up to you.
+
 ## From a download
 
-1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master) 
+1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master)
    or see the [Download](https://github.com/Luzifer/PHPFramework/downloads) section for more
    options.
 1. Create a new empty directory and in that directory create a folder `lib/framework`
@@ -37,24 +55,11 @@ For example this could look like this:
 
 Your application is now ready and filled with some basic examples. The rest is up to you.
 
-## As a GIT submodule
-
-1. Create a new GIT repository or get into your existing git repository
-1. Do a `git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework`
-1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
-
-For example this could look like this:
-
-    $ cd ~/src
-    $ mkdir newproject
-    $ cd newproject
-    $ git init
-    $ git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework
-    $ php lib/framework/scripts/create_app.php mynewapplication
-
-Your application is now ready and filled with some basic examples. The rest is up to you.
-
 # Changes
+
+**2012-04-11:**
+
+- Finished work on first release (v0.1) of the new subdir version
 
 **2011-12-02:**
 
