@@ -37,8 +37,8 @@ Your application is now ready and filled with some basic examples. The rest is u
 
 ## From a download
 
-1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/master)
-   or see the [Download](https://github.com/Luzifer/PHPFramework/downloads) section for more
+1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/v0.1)
+   or see the [Tags](https://github.com/Luzifer/PHPFramework/tags) section for more
    options.
 1. Create a new empty directory and in that directory create a folder `lib/framework`
 1. Put the contents of the tar file into that framework directory
