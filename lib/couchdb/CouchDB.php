@@ -105,7 +105,7 @@ class CouchDB {
   }
 
   /**
-   * @param $category
+   * @param string $category
    * @param array $views
    * @return mixed
    */
@@ -122,9 +122,9 @@ class CouchDB {
   }
 
   /**
-   * @param $category
-   * @param $name
-   * @param $function
+   * @param string $category
+   * @param string $name
+   * @param string $function
    * @return mixed
    */
   public function create_simple_view($category, $name, $function) {
@@ -215,10 +215,9 @@ class CouchDB {
   /**
    * Get a view from the database
    *
-   * @param $category
-   * @param $name
+   * @param string $category
+   * @param string $name
    * @param bool $descending
-   * @internal param string $id
    * @throws CouchDBNotFoundException when view does not exist
    * @return object
    */
