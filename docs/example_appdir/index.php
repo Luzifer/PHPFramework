@@ -3,6 +3,7 @@
 require_once '%%FRAMEWORK%%/dispatcher.php';
 
 // BaseAutoLoader::register_base_lib('mysql');
+// BaseAutoLoader::register_base_lib('couchdb');
 
 $dispatcher = new Dispatcher(
     new ConfigIni('%%APPDIR%%/settings.ini', null)
