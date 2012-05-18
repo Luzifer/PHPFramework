@@ -50,6 +50,11 @@ class BaseExceptionVisualizer {
     }
   }
 
+  /**
+   * @static
+   * @param Exception $exception
+   * @return array
+   */
   private static function generate_template_vars($exception) {
     // these are our templates
     $traceline = "#%s %s(%s): %s(%s)";
