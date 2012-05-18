@@ -19,6 +19,12 @@ class CouchDB {
     $this->port = $this->config->get('db.couchdb.' . $connection . '.port', 5984);
     $this->database = $this->config->get('db.couchdb.' . $connection . '.database', null);
 
+    if($this->config->get('db.couchdb.' . $connection . '.user', null) !== null) {
+      $user = $this->config->get('db.couchdb.' . $connection . '.user', null);
+      $pass = $this->config->get('db.couchdb.' . $connection . '.password', null);
+      $this->host = $user . ':' . $pass . '@' . $this->host;
+    }
+
     if($this->database === null) {
       throw new CouchDBConfigurationError('Configration key "db.couchdb.' . $connection . '.database" is missing.');
     }
@@ -83,6 +89,11 @@ class CouchDB {
       throw new CouchDBResultException('No valid result for '. $options[CURLOPT_URL] .': '. $result);
     }
     curl_close($ch);
+
+    if(array_key_exists('error', $retval) && $retval['error'] === 'unauthorized') {
+      throw new CouchDBAuthenticationError('Authentication failure: ' . $retval['reason']);
+    }
+
     return $retval;
   }
 
@@ -240,3 +251,4 @@ class CouchDBResultException extends Exception {}
 class CouchDBAlreadyExistException extends Exception {}
 class CouchDBNotFoundException extends Exception {}
 class CouchDBConfigurationError extends Exception {}
+class CouchDBAuthenticationError extends Exception {}
