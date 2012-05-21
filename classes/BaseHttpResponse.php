@@ -73,6 +73,20 @@ class BaseHttpResponse {
   }
 
   /**
+   * Sends the headers if not already done and puts the content
+   * to output stream
+   *
+   * @param string $content Content to send to browser
+   */
+  public function write($content) {
+    if(!headers_sent()) {
+      $this->send_headers();
+    }
+
+    echo $content;
+  }
+
+  /**
    * Sends an json encoded object to the browser using correct content type
    *
    * @param mixed $object Object (most likely an array) to json encode
