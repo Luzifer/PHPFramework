@@ -63,6 +63,18 @@ class ConfigIni implements IConfigReader {
     }
   }
 
+  /**
+   * Adds / overwrites a config value in the config object
+   *
+   * The value is NOT stored persistent!
+   *
+   * @param $config_key
+   * @param $config_value
+   */
+  public function set($config_key, $config_value) {
+    $this->config['config'][$config_key] = $config_value;
+  }
+
 }
 
 class ConfigIniFileNotFoundException extends Exception {}
