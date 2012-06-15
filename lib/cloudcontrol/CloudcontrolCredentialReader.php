@@ -99,7 +99,7 @@ class CloudcontrolCredentialReader implements IConfigReader {
   }
 
   public function getSection($config_section_name) {
-    // TODO: Implement getSection() method.
+    return $this->main_config->getSection($config_section_name);
   }
 
   public function set($config_key, $config_value) {
