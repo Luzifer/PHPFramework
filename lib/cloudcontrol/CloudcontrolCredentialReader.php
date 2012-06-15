@@ -18,9 +18,11 @@ class CloudcontrolCredentialReader implements IConfigReader {
   public function __construct($main_config) {
     $this->main_config = $main_config;
 
-    $creds = file_get_contents($_ENV['CRED_FILE'], false);
-    if($creds !== false) {
-      $this->credentials = json_decode($creds, true);
+    if(array_key_exists('CRED_FILE', $_ENV)) {
+      $creds = file_get_contents($_ENV['CRED_FILE'], false);
+      if($creds !== false) {
+        $this->credentials = json_decode($creds, true);
+      }
     }
   }
 
