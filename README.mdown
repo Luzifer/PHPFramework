@@ -57,6 +57,15 @@ Your application is now ready and filled with some basic examples. The rest is u
 
 # Changes
 
+**2012-06-15:**
+
+- Added configuration reader for CloudControl credential files
+- Added simple [documentation](https://github.com/Luzifer/PHPFramework/blob/subdir/docs/corelibs.md) for core library
+
+**2012-04-24:**
+
+- Added CouchDB base library
+
 **2012-04-11:**
 
 - Finished work on first release (v0.1) of the new subdir version
