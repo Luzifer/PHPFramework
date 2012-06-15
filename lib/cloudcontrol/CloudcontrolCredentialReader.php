@@ -34,10 +34,10 @@ class CloudcontrolCredentialReader implements IConfigReader {
     // Others will be passed to original config!
     if(count($key_parts) == 4 && $key_parts[0] == 'db' && $key_parts[2] == 'default') {
       if($key_parts[1] == 'mysql') {
-        $return_value = $this->cctrl_mysql_cred($key_parts[4]);
+        $return_value = $this->cctrl_mysql_cred($key_parts[3]);
       }
       if($key_parts[1] == 'couchdb') {
-        $return_value = $this->cctrl_couchdb_cred($key_parts[4]);
+        $return_value = $this->cctrl_couchdb_cred($key_parts[3]);
       }
     }
 
