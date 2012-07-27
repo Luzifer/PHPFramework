@@ -229,13 +229,24 @@ class CouchDB {
    * @param string $category
    * @param string $name
    * @param bool $descending
-   * @throws CouchDBNotFoundException when view does not exist
+   * @param bool $grouping
+   * @throws CouchDBNotFoundException
    * @return object
    */
-  public function get_view($category, $name, $descending = false) {
+  public function get_view($category, $name, $descending = false, $grouping = false) {
     $suffix = '';
+    $params = array();
     if($descending === true) {
-      $suffix = '?descending=true';
+      $params['descending'] = 'true';
+    }
+    if($grouping === true) {
+      $params['group'] = 'true';
+    }
+    if(count($params) > 0) {
+      $suffix = '?_=1';
+      foreach($params as $key => $value) {
+        $suffix .= $key . '=' . $value;
+      }
     }
     $doc = $this->send(array('_design', $category, '_view', $name . $suffix));
 
