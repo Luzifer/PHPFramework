@@ -230,7 +230,7 @@ class CouchDB {
    * @param string $name
    * @param bool $descending
    * @param bool $grouping
-   * @throws CouchDBNotFoundException
+   * @throws CouchDBNotFoundException when view does not exist
    * @return object
    */
   public function get_view($category, $name, $descending = false, $grouping = false) {
