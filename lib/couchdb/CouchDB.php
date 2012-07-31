@@ -245,7 +245,7 @@ class CouchDB {
     if(count($params) > 0) {
       $suffix = '?_=1';
       foreach($params as $key => $value) {
-        $suffix .= $key . '=' . $value;
+        $suffix .= '&' . $key . '=' . $value;
       }
     }
     $doc = $this->send(array('_design', $category, '_view', $name . $suffix));
