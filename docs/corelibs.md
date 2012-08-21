@@ -70,3 +70,13 @@ will be used.
       , 'myapp'
     );
 
+# SimpleAuth
+
+This library provides access to the `SimpleAuthHandler` to have a simple basic authentication
+in your handlers. You just have to extend this class in your handlers and make sure to execute
+its constructor. The username -> password mapping is configured in your settings file. You can
+find an example in the docs. Every password has to be an sha1sum of the real password.
+
+## Documentation
+
+- [SimpleAuthHandler](http://integration.kserver.biz/job/PHPFramework_Subdir/javadoc/default/SimpleAuthHandler.html)
