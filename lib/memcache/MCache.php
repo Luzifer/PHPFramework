@@ -14,7 +14,7 @@ class MCache extends Memcached {
       if(!empty($server['user']) && !empty($server['password'])) {
         $this->configureSasl($server['user'], $server['password']);
       }
-      $this->addServer($server['host'], (!empty($server['port'])) ? $server['post'] : '11211');
+      $this->addServer($server['host'], (!empty($server['port'])) ? $server['port'] : '11211');
     }
   }
 }
