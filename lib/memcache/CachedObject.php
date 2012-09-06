@@ -84,7 +84,7 @@ class CachedObject {
   }
 
   protected function saveToCache() {
-    $this->memcache->set($this->getCacheKey(), $this->current_values);
+    $this->memcache->set($this->getCacheKey(), $this->current_values, $this->timeout);
   }
 
   protected function getCacheKey() {
