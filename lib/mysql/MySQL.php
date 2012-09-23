@@ -463,7 +463,12 @@ class MySQL {
 
   }
 
-  private function escape($value) {
+  /**
+   * Escape values
+   *
+   * @param mixed $value
+   */
+  public function escape($value) {
     $value = stripslashes($value);
     if($this->connection() !== null) {
       return mysql_real_escape_string((string)$value, $this->connection());
