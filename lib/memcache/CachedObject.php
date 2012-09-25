@@ -59,7 +59,7 @@ class CachedObject {
       if(!empty($data['cache_version']) && $data['cache_version'] < $this->code_version) {
         throw new CacheNotFoundException;
       }
-      if(idate('U') > $data['invalidate_after']) {
+      if(isset($data['invalidate_after']) && idate('U') > $data['invalidate_after']) {
         throw new CacheNotFoundException;
       }
       $this->original_values = $data;
