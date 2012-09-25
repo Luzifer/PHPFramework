@@ -90,6 +90,21 @@ class CloudcontrolCredentialReader implements IConfigReader {
     }
   }
 
+  private function cctrl_memcachier_cred() {
+    if(!array_key_exists('MEMCACHIER', $this->credentials)) {
+      return null;
+    }
+
+    $servers = array(
+      array(
+          'host' => $this->credentials['MEMCACHIER']['MEMCACHIER_SERVERS']
+        , 'user' => $this->credentials['MEMCACHIER']['MEMCACHIER_USERNAME']
+        , 'password' => $this->credentials['MEMCACHIER']['MEMCACHIER_PASSWORD']
+      )
+    );
+    return $servers;
+  }
+
   public function get($config_key, $default = null) {
     $cred = $this->get_credential($config_key);
     if($cred === null) {
@@ -99,7 +114,13 @@ class CloudcontrolCredentialReader implements IConfigReader {
   }
 
   public function getSection($config_section_name) {
-    return $this->main_config->getSection($config_section_name);
+    if(array_key_exists('MEMCACHIER', $this->credentials)) {
+      if($config_section_name == 'memcache') {
+        return $this->cctrl_memcachier_cred();
+      }
+    } else {
+      return $this->main_config->getSection($config_section_name);
+    }
   }
 
   public function set($config_key, $config_value) {
