@@ -88,7 +88,7 @@ class CachedObject {
   }
 
   protected function saveToCache() {
-    $this->current_values['invalidate_after'] = idate('U') + $this->timeout;
+    $this->invalidate_after = idate('U') + $this->timeout;
     $this->memcache->set($this->getCacheKey(), $this->current_values, $this->timeout);
   }
 
