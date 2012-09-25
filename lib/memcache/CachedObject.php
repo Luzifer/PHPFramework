@@ -11,6 +11,7 @@ class CachedObject {
   protected $db = null;
   protected $options = array();
   protected $code_version = 1;
+  protected $invalidate_after = 0;
   protected $delete = false;
 
   public function __construct($options = array()) {
@@ -38,7 +39,9 @@ class CachedObject {
       }
     }
     $this->current_values['cache_version'] = $this->code_version;
+    $this->current_values['invalidate_after'] = $this->invalidate_after;
     $this->ignored_values[] = 'cache_version';
+    $this->ignored_values[] = 'invalidate_after';
     $this->saveToCache();
   }
 
@@ -70,6 +73,7 @@ class CachedObject {
   }
 
   public function save() {
+    $this->invalidate_after = idate('U') + $this->timeout;
     $this->changed_vales = array();
     foreach($this->current_values as $key => $value) {
       if((!isset($this->original_values[$key]) && isset($this->current_values[$key])) || $value != $this->original_values[$key]) {
@@ -88,7 +92,6 @@ class CachedObject {
   }
 
   protected function saveToCache() {
-    $this->invalidate_after = idate('U') + $this->timeout;
     $this->memcache->set($this->getCacheKey(), $this->current_values, $this->timeout);
   }
 
