@@ -36,13 +36,14 @@ class CachedObject {
       if(!isset($this->options['load_from_db']) || $this->options['load_from_db'] === true) {
         $this->loadFromDB();
         $this->original_values = $this->current_values;
+        $this->invalidate_after = idate('U') + $this->timeout;
+        $this->current_values['cache_version'] = $this->code_version;
+        $this->current_values['invalidate_after'] = $this->invalidate_after;
+        $this->saveToCache();
       }
     }
-    $this->current_values['cache_version'] = $this->code_version;
-    $this->current_values['invalidate_after'] = $this->invalidate_after;
     $this->ignored_values[] = 'cache_version';
     $this->ignored_values[] = 'invalidate_after';
-    $this->saveToCache();
   }
 
   public function loadFromDB() {
