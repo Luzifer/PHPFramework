@@ -59,9 +59,13 @@ class CachedObject {
       if(!empty($data['cache_version']) && $data['cache_version'] < $this->code_version) {
         throw new CacheNotFoundException;
       }
+      if(idate('U') > $data['invalidate_after']) {
+        throw new CacheNotFoundException;
+      }
       $this->original_values = $data;
       $this->current_values = $data;
       $this->ignored_values[] = 'cache_version';
+      $this->ignored_values[] = 'invalidate_after';
     }
   }
 
@@ -84,6 +88,7 @@ class CachedObject {
   }
 
   protected function saveToCache() {
+    $this->current_values['invalidate_after'] = idate('U') + $this->timeout;
     $this->memcache->set($this->getCacheKey(), $this->current_values, $this->timeout);
   }
 
