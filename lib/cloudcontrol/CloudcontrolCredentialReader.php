@@ -49,7 +49,7 @@ class CloudcontrolCredentialReader implements IConfigReader {
       return null;
     }
 
-    if(array_key_exists('MYSQLD', $this->credentials) && !empty($this->credentials['MYSQLD_USER'])) {
+    if(array_key_exists('MYSQLD', $this->credentials) && !empty($this->credentials['MYSQLD']['MYSQLD_USER'])) {
       $prefix = 'MYSQLD';
 
       switch($key) {
