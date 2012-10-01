@@ -49,23 +49,35 @@ class CloudcontrolCredentialReader implements IConfigReader {
       return null;
     }
 
-    $prefix = 'MYSQLS';
-
-    if(array_key_exists('MYSQLD', $this->credentials)) {
+    if(array_key_exists('MYSQLD', $this->credentials) && !empty($this->credentials['MYSQLD_USER'])) {
       $prefix = 'MYSQLD';
-    }
 
-    switch($key) {
-      case 'host':
-        return $this->credentials[$prefix][$prefix . '_HOSTNAME'] . ':' . $this->credentials[$prefix][$prefix . '_PORT'];
-      case 'user':
-        return $this->credentials[$prefix][$prefix . '_USERNAME'];
-      case 'password':
-        return $this->credentials[$prefix][$prefix . '_PASSWORD'];
-      case 'database':
-        return $this->credentials[$prefix][$prefix . '_DATABASE'];
-      default:
-        return null;
+      switch($key) {
+        case 'host':
+          return $this->credentials[$prefix][$prefix . '_HOST'] . ':' . $this->credentials[$prefix][$prefix . '_PORT'];
+        case 'user':
+          return $this->credentials[$prefix][$prefix . '_USER'];
+        case 'password':
+          return $this->credentials[$prefix][$prefix . '_PASSWORD'];
+        case 'database':
+          return $this->credentials[$prefix][$prefix . '_DATABASE'];
+        default:
+          return null;
+      }
+    } else {
+      $prefix = 'MYSQLS';
+      switch($key) {
+        case 'host':
+          return $this->credentials[$prefix][$prefix . '_HOSTNAME'] . ':' . $this->credentials[$prefix][$prefix . '_PORT'];
+        case 'user':
+          return $this->credentials[$prefix][$prefix . '_USERNAME'];
+        case 'password':
+          return $this->credentials[$prefix][$prefix . '_PASSWORD'];
+        case 'database':
+          return $this->credentials[$prefix][$prefix . '_DATABASE'];
+        default:
+          return null;
+      }
     }
   }
 
