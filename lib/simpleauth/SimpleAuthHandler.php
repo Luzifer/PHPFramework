@@ -2,6 +2,13 @@
 
 class SimpleAuthHandler extends BaseHttpHandler {
 
+  /**
+   * Name of the currently authenticated user, null if none
+   *
+   * @var null|string
+   */
+  protected $authenticated_user = null;
+
   public function __construct($request, $response, $config) {
     parent::__construct($request, $response, $config);
 
@@ -29,6 +36,8 @@ class SimpleAuthHandler extends BaseHttpHandler {
     if(sha1($_SERVER['PHP_AUTH_PW']) !== $password_hash) {
       $this->send_to_auth();
     }
+
+    $this->authenticated_user = $_SERVER['PHP_AUTH_USER'];
   }
 
   private function send_to_auth() {
