@@ -188,7 +188,7 @@ class CouchDB2 {
    * @return array
    */
   public function saveDoc($doc, $options = array()) {
-    $result = $this->send($doc, 'PUT', null, $options);
+    $result = $this->send($doc, 'POST', null, $options);
     if(array_key_exists('ok', $result) && $result['ok'] == true) {
       return $this->openDoc($result['id'], $options);
     } else {
