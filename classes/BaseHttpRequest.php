@@ -41,6 +41,30 @@ class BaseHttpRequest {
     return $default_value;
     
   }
+
+  /**
+   * Reads the plain request body as a string
+   *
+   * @return string
+   * @throws ParameterNotFoundException if no body could be read
+   */
+  public function body() {
+    $body = '';
+    $fh   = @fopen('php://input', 'r');
+    if ($fh) {
+      while (!feof($fh)) {
+        $s = fread($fh, 1024);
+        if (is_string($s)) {
+          $body .= $s;
+        }
+      }
+      fclose($fh);
+    } else {
+      throw new ParameterNotFoundException('No body could be read.');
+    }
+
+    return $body;
+  }
   
   /**
    * Returns the value of an parameter for a specified source if the source is supported and the parameter exists
