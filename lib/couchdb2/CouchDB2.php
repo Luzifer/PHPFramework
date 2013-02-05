@@ -208,7 +208,6 @@ class CouchDB2 {
    * @return
    */
   public function view($name, $options = array()) {
-    $options['include_docs'] = 'true';
     $nameparts = explode('/', $name);
     if(count($nameparts) != 2) {
       throw new CouchDB2NotFoundException('Please specify _design/_view');
