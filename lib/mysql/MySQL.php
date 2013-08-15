@@ -241,7 +241,7 @@ class MySQL {
     
     return $output;
   }
-  
+   
   /**
    * Inserts dataset into the table and returns the auto increment key for it
    * 
@@ -253,6 +253,26 @@ class MySQL {
   public function insert($table, $input, $ignore = false) {
     $ignore = ($ignore) ? ' IGNORE' : '';
     $this->execute('INSERT' . ($ignore) . ' INTO ' . $this->prefix_table($table) . ' SET ' . $this->values($input));
+    return $this->last_id();
+  }
+ 
+  /**
+   * Inserts dataset into the table or updates an existing key and returns the auto increment key for it
+   * 
+   * @param string $table Name of the table
+   * @param string|array $input Dataset to insert into the table
+   * @param array $update_fields update this columns when ON DUPLICATE KEY
+   * @return int
+   */
+  public function insert_or_update($table, $input, $update_fields = array()) {
+    $update_values = array();
+    foreach($update_fields as $fieldname) {
+      if(isset($input[$fieldname])) {
+        $update_values[$fieldname] = $input[$fieldname];
+      }
+    }
+
+    $this->execute('INSERT INTO ' . $this->prefix_table($table) . ' SET ' . $this->values($input) . ' ON DUPLICATE KEY UPDATE '. $this->values($update_values));
     return $this->last_id();
   }
   
