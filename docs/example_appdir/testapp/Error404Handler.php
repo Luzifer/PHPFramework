@@ -3,7 +3,8 @@
 class TestappError404Handler extends BaseHttpHandler {
 
   public function get($params) {
-    // TODO: Write your own code
+    header('HTTP/1.0 404 Not Found');
+    $this->response->display('404');
   }
 
 }
