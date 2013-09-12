@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
+
 # Requirements
 
 Currently the best supported setup (as we use it for development) for this framework is this:
