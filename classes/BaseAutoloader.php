@@ -54,6 +54,7 @@ class BaseAutoLoader {
       for($i = 1; $i < count($class_parts); $i++) {
         $parts[] = $class_parts[$i];
       }
+      $chances[] = rtrim(self::$base_autoloader_app_path, '/') . '/' . $class_parts[0] . '/' . join('', $parts) . '.php';
       $chances[] = rtrim(self::$base_autoloader_app_path, '/') . '/' . strtolower($class_parts[0]) . '/' . join('', $parts) . '.php';
 
       // There might be four more choises to check for the class file
