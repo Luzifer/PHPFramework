@@ -24,6 +24,7 @@ the framework itself you should check whether your app is still compatible with 
 1. Create a new GIT repository or get into your existing git repository
 1. Do a `git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework`
 1. Ensure you are running the `subdir` branch as only this is suiteable for sumbodule usage
+1. Initialize submodules recursive to fetch third party libraries with `git submodule update --init --recursive`
 1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
 For example this could look like this:
@@ -33,31 +34,22 @@ For example this could look like this:
     $ cd newproject
     $ git init
     $ git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework
+    $ git submodule update --init --recursive
     $ php lib/framework/scripts/create_app.php mynewapplication
 
 Your application is now ready and filled with some basic examples. The rest is up to you.
 
 ## From a download
 
-1. Get the sources in a [tar.gz file](https://github.com/Luzifer/PHPFramework/tarball/v0.1)
-   or see the [Tags](https://github.com/Luzifer/PHPFramework/tags) section for more
-   options.
-1. Create a new empty directory and in that directory create a folder `lib/framework`
-1. Put the contents of the tar file into that framework directory
-1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
-
-For example this could look like this:
-
-    $ cd ~/src
-    $ mkdir -p newproject/lib/framework
-    $ cd newproject/lib/framework
-    $ tar -xzf ~/Downloads/Luzifer-PHPFramework-8f124cb.tar.gz
-    $ cd ~/src/newproject
-    $ php lib/framework/scripts/create_app.php mynewapplication
-
-Your application is now ready and filled with some basic examples. The rest is up to you.
+This technique is not longer supported as the download generator on GitHub sadly does not include
+third party libraries in their downloads. The directories of those libraries would simply be empty
+and the framework would not be working.
 
 # Changes
+
+**2013-11-27:**
+
+- Updated Twig to version 1.14.2
 
 **2012-06-15:**
 
