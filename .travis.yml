@@ -1,5 +1,12 @@
 language: php
+
 php:
+  - 5.5
   - 5.4
   - 5.3
 script: phpunit test/
+
+# Only test commits to production branch and all pull requests
+branches:
+  only:
+    - subdir
