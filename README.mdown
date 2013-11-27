@@ -9,6 +9,11 @@ Currently the best supported setup (as we use it for development) for this frame
 - Apache 2.2 with PHP running with mod\_php and mod\_rewrite enabled *(PHP over CGI should also work)*
 - MySQL 5.1 *(but 5.0 or even 4.x should work as well)*
 
+## Tested deployments on PaaS
+
+- Heroku on Cedar stack
+- Cloudcontrol on Luigi and Pinky stack
+
 # About the current version
 
 The current version is not a stable one. There are currently no stable tags so you are working with
