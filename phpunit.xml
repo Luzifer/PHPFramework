@@ -21,6 +21,13 @@
          timeoutForLargeTests="60"
          strict="false"
          verbose="false">
+
+  <testsuites>
+    <testsuite name="Base Class Tests">
+      <directory>test</directory>
+    </testsuite>
+  </testsuites>
+
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">.</directory>

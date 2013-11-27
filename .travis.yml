@@ -17,7 +17,7 @@ before_script:
   - 'echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini'
   - 'echo "extension = xdebug.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini'
 
-script: phpunit test/
+script: phpunit
 
 after_script:
   - "cd /tmp/report && travis-artifacts upload --path . --target-path /$(phpenv version-name)/"
