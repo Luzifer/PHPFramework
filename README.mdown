@@ -47,7 +47,7 @@ and the framework would not be working.
 
 # Changes
 
-**2013-11-27:**
+**2013-11-27 (v0.2):**
 
 - Updated Twig to version 1.14.2
 
@@ -60,7 +60,7 @@ and the framework would not be working.
 
 - Added CouchDB base library
 
-**2012-04-11:**
+**2012-04-11 (v0.1):**
 
 - Finished work on first release (v0.1) of the new subdir version
 
