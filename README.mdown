@@ -28,7 +28,7 @@ the framework itself you should check whether your app is still compatible with 
 
 1. Create a new GIT repository or get into your existing git repository
 1. Do a `git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework`
-1. Ensure you are running the `subdir` branch as only this is suiteable for sumbodule usage
+1. Optional: Switch to version tag: `git checkout v0.2`
 1. Initialize submodules recursive to fetch third party libraries with `git submodule update --init --recursive`
 1. Execute the `lib/framework/scripts/create_app.php` script with one parameter: The name of your new app
 
@@ -39,6 +39,7 @@ For example this could look like this:
     $ cd newproject
     $ git init
     $ git submodule add git://github.com/Luzifer/PHPFramework.git lib/framework
+    $ cd lib/framework && git checkout v0.2 && cd ../../
     $ git submodule update --init --recursive
     $ php lib/framework/scripts/create_app.php mynewapplication
 
