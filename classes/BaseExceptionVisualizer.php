@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../lib/Twig/Autoloader.php');
+require_once(dirname(__FILE__) . '/../lib/twig/lib/Twig/Autoloader.php');
 
 class BaseExceptionVisualizer {
   private static $display_template = null;
