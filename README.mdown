@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
+([Code-Coverage](http://phpframework.knut.me/5.4/index.html))
 
 # Requirements
 
