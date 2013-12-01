@@ -8,7 +8,7 @@ php:
 env:
   global:
     - "ARTIFACTS_AWS_REGION=us-east-1"
-    - "ARTIFACTS_S3_BUCKET=phpframework.knut.me"
+    - "ARTIFACTS_S3_BUCKET=phpframework.luzifer.ws"
     - secure: "JwThLvud9ujObchHzf1V3SxyJ0fTTSPE/JPCmvH+nrIHIWSA3gLV5DQj3yLIwkkCkEjERVwRdYnKwxNJKSg54DNgmUJjYOw7igYu4xquBdV2fHFZ10T2bwCW2cK1+LtiLhUjkvIaLYQfFheIb3xEc4bzcXnA+jE0YJIYnt22TAY="
     - secure: "OFGijhgiDGYzNt4kZjd7OspCtd/lNi++vE4yyhNirg/QsoRzkpz1Xfotk7ZCRaPRAnEMM0uD9Xkq+cEGOJ/SPUkneuWmEAksUV9MzkSkME6zhX2gn9mpCvGF4o9YV5x3sb4cQKAS72AnT4u4SwZ8wugzE7ksK/NSG3dPfbrSW28="
 

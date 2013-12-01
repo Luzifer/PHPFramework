@@ -20,7 +20,7 @@ Currently the best supported setup (as we use it for development) for this frame
 # Unit-Tests
 
 - [![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
-- [Code-Coverage Report](http://phpframework.knut.me/5.4/index.html)
+- [Code-Coverage Report](http://phpframework.luzifer.ws/5.4/index.html)
 
 # How to install this framework
 ## As a GIT submodule (Recommended)
