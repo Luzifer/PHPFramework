@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
-([Code-Coverage](http://phpframework.knut.me/5.4/index.html))
-
 # Requirements
 
 Currently the best supported setup (as we use it for development) for this framework is this:
@@ -15,14 +12,15 @@ Currently the best supported setup (as we use it for development) for this frame
 - Heroku on Cedar stack
 - Cloudcontrol on Luigi and Pinky stack
 
-# About the current version
+# About the versions of the framwork
 
-The current version is not a stable one. There are currently no stable tags so you are working with
-an unstable version. We are working on it to get as fast as possible to a first stable tag which
-will be backward compatible. Until this tag there could be commits which break backward compatibility.
+- The development branch is [subdir](https://github.com/Luzifer/PHPFramework/tree/subdir), code may break without warning
+- Use [tags](https://github.com/Luzifer/PHPFramework/tags) for your projects, don't use the ZIP/TAR archives as they don't contain submodule code
 
-As long as you are working on the same version all the time you should be fine but for any upgrade of
-the framework itself you should check whether your app is still compatible with the new version.
+# Unit-Tests
+
+- [![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
+- [Code-Coverage Report](http://phpframework.knut.me/5.4/index.html)
 
 # How to install this framework
 ## As a GIT submodule (Recommended)
