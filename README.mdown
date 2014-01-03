@@ -21,6 +21,7 @@ Currently the best supported setup (as we use it for development) for this frame
 
 - [![Build Status](https://travis-ci.org/Luzifer/PHPFramework.png?branch=subdir)](https://travis-ci.org/Luzifer/PHPFramework)
 - [Code-Coverage Report](http://phpframework.luzifer.ws/5.4/index.html)
+- [![Analytics](https://ga-beacon.appspot.com/UA-13186236-6/PHPFramework/readme)](https://github.com/igrigorik/ga-beacon)
 
 # How to install this framework
 ## As a GIT submodule (Recommended)
