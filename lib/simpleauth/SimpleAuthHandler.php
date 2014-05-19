@@ -27,7 +27,7 @@ class HttpCredential {
   public function __construct($config) {
     $this->config = $config;
     if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
-      $this->user = $_SERVER['PHP_AUTH_USER'];
+      $this->name = $_SERVER['PHP_AUTH_USER'];
       $this->pass = $_SERVER['PHP_AUTH_PW'];
     } elseif (isset($_ENV['HTTP_AUTHORIZATION'])) {
       if (preg_match('/^Basic\s+(.+)/i', $_ENV['HTTP_AUTHORIZATION'], $matches)) {
@@ -57,8 +57,8 @@ class HttpCredential {
     $authorization = $this->config->getSection('authorization');
     return $this->$name !== null
     && $this->pass !== null
-    && array_key_exists($this->user, $authorization)
-    && sha1($this->pass) !== $authorization[$this->user];
+    && array_key_exists($this->name, $authorization)
+    && sha1($this->pass) !== $authorization[$this->pass];
   }
 }
 
