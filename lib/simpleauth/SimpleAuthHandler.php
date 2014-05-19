@@ -55,7 +55,7 @@ class HttpCredential {
    */
   public function is_authenticated() {
     $authorization = $this->config->getSection('authorization');
-    return $this->$name !== null
+    return $this->name !== null
     && $this->pass !== null
     && array_key_exists($this->name, $authorization)
     && sha1($this->pass) !== $authorization[$this->pass];
