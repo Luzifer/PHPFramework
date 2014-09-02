@@ -51,32 +51,3 @@ This technique is not longer supported as the download generator on GitHub sadly
 third party libraries in their downloads. The directories of those libraries would simply be empty
 and the framework would not be working.
 
-# Changes
-
-**2013-11-27 (v0.2):**
-
-- Updated Twig to version 1.14.2
-
-**2012-06-15:**
-
-- Added configuration reader for CloudControl credential files
-- Added simple [documentation](https://github.com/Luzifer/PHPFramework/blob/subdir/docs/corelibs.md) for core library
-
-**2012-04-24:**
-
-- Added CouchDB base library
-
-**2012-04-11 (v0.1):**
-
-- Finished work on first release (v0.1) of the new subdir version
-
-**2011-12-02:**
-
-- Updated Twig to version 1.3.0
-
-**2011-11-15:**
-
-- Removed Apache mod\_php-only functionality to support PHP over CGI
-- Moved config to new file to prevent overwriting it while upgrading the framework
-- Published all code under BSD license
-- Removed dbadmin as of security and license issues
