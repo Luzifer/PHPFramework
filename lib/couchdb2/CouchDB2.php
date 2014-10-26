@@ -298,6 +298,10 @@ class CouchDB2 {
       throw new CouchDB2AuthenticationError('Authentication failure: ' . $retval['reason']);
     }
 
+    if(array_key_exists('error', $retval) && $retval['error'] === 'not_found') {
+      throw new CouchDB2NotFoundException('No valid result for '. $options[CURLOPT_URL] .': '. $result);
+    }
+
     return $retval;
   }
 
