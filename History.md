@@ -1,4 +1,10 @@
 
+0.4.0 / 2014-11-16
+==================
+
+  * Enable Heroku wrapper to read config vars using '.'
+  * Added check whether couch response was not_found
+
 0.3.0 / 2014-09-02
 ==================
 
