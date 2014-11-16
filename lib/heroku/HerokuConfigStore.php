@@ -21,8 +21,9 @@ class HerokuConfigStore implements IConfigReader {
   }
 
   public function get($config_key, $default = null) {
-    if(array_key_exists($config_key, $_ENV)) {
-      return $_ENV[$config_key];
+    $secure_key = str_replace('.', '_', $config_key);
+    if(array_key_exists($secure_key, $_ENV)) {
+      return $_ENV[$secure_key];
     } else {
       return $this->origin_reader->get($config_key, $default);
     }
